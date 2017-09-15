@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://www.mwxu16.cn">
   <title>Reverse Integer | TR&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="From : www.LeetCode.comReverse IntegerDescriptionReverse digits of an integer.">
+  <meta name="description" content="From : www.LeetCode.comDescriptionReverse digits of an integer.">
 <meta name="keywords" content="algorithm,LeetCode,easy">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Reverse Integer">
 <meta property="og:url" content="http://www.mwxu16.cn/2017/09/15/3.ReverseInteger/index.html">
 <meta property="og:site_name" content="TR&#39;s Blog">
-<meta property="og:description" content="From : www.LeetCode.comReverse IntegerDescriptionReverse digits of an integer.">
+<meta property="og:description" content="From : www.LeetCode.comDescriptionReverse digits of an integer.">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-09-11T16:23:53.934Z">
+<meta property="og:updated_time" content="2017-09-15T16:23:36.347Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Reverse Integer">
-<meta name="twitter:description" content="From : www.LeetCode.comReverse IntegerDescriptionReverse digits of an integer.">
+<meta name="twitter:description" content="From : www.LeetCode.comDescriptionReverse digits of an integer.">
   
     <link rel="alternative" href="/atom.xml" title="TR&#39;s Blog" type="application/atom+xml">
   
@@ -179,7 +179,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="From-www-LeetCode-com"><a href="#From-www-LeetCode-com" class="headerlink" title="From : www.LeetCode.com"></a><em>From : www.LeetCode.com</em></h1><h2 id="Reverse-Integer"><a href="#Reverse-Integer" class="headerlink" title="Reverse Integer"></a>Reverse Integer</h2><p><strong>Description</strong><br>Reverse digits of an integer.<br> <a id="more"></a><br><strong>Example:</strong><br>Example1: x = <code>123</code>, return <code>321</code><br>Example2: x = <code>-123</code>, return <code>-321</code></p>
+        <h2 id="From-www-LeetCode-com"><a href="#From-www-LeetCode-com" class="headerlink" title="From : www.LeetCode.com"></a><em>From : www.LeetCode.com</em></h2><p><strong>Description</strong><br>Reverse digits of an integer.<br> <a id="more"></a><br><strong>Example:</strong><br>Example1: x = <code>123</code>, return <code>321</code><br>Example2: x = <code>-123</code>, return <code>-321</code></p>
 <p><strong>Note:</strong><br>The input is assumed to be a 32-bit signed integer. Your function should return 0 when the reversed integer overflows. 2.  </p>
 <h2 id="中文介绍"><a href="#中文介绍" class="headerlink" title="中文介绍"></a>中文介绍</h2><p><strong>描述</strong><br>给定一个整数，返回该整数反转后的结果，正负不变。<br>要注意的是，当给定的整数反转后，大小超出整数的取值范围时，应当返回0。<br><strong>例子</strong><br>例如给一个整数x = <code>123</code>，应当返回<code>321</code>。<br>给一个整数x = <code>-123</code>，应当返回<code>-321</code>。<br>给一个整数x = <code>2147483647</code>，应当返回<code>0</code>（因为反转后会超出取值范围）。</p>
 <h2 id="解决方案一"><a href="#解决方案一" class="headerlink" title="解决方案一"></a>解决方案一</h2><p>本方案的思想：<br>首先，记录下该整数的正负。<br>然后，将该整数转为字符串，并通过StringBuilder的reverse()方法，获取到该字符串的反转。<br>然后，将反转后的字符串再转回Int类型，此处需要考虑是否会超出取值范围，若超出范围则返回0。<br>最后，将得到的整数带上它的正负返回。</p>
@@ -370,7 +370,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#From-www-LeetCode-com"><span class="toc-number">1.</span> <span class="toc-text">From : www.LeetCode.com</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Reverse-Integer"><span class="toc-number">1.1.</span> <span class="toc-text">Reverse Integer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#中文介绍"><span class="toc-number">1.2.</span> <span class="toc-text">中文介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方案一"><span class="toc-number">1.3.</span> <span class="toc-text">解决方案一</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码实现（JAVA）"><span class="toc-number">1.4.</span> <span class="toc-text">代码实现（JAVA）</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#From-www-LeetCode-com"><span class="toc-number">1.</span> <span class="toc-text">From : www.LeetCode.com</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#中文介绍"><span class="toc-number">2.</span> <span class="toc-text">中文介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方案一"><span class="toc-number">3.</span> <span class="toc-text">解决方案一</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码实现（JAVA）"><span class="toc-number">4.</span> <span class="toc-text">代码实现（JAVA）</span></a></li></ol>
                     </div>
                 </span>
             </div>

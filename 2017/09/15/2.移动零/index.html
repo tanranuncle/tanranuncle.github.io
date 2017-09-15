@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://www.mwxu16.cn">
   <title>移动零 | TR&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="From : www.LintCode.com移动零描述给一个数组 nums 写一个函数将 0 移动到数组的最后面，非零元素保持原数组的顺序。">
+  <meta name="description" content="From : www.LintCode.com描述给一个数组 nums 写一个函数将 0 移动到数组的最后面，非零元素保持原数组的顺序。">
 <meta name="keywords" content="algorithm,easy,LintCode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="移动零">
 <meta property="og:url" content="http://www.mwxu16.cn/2017/09/15/2.移动零/index.html">
 <meta property="og:site_name" content="TR&#39;s Blog">
-<meta property="og:description" content="From : www.LintCode.com移动零描述给一个数组 nums 写一个函数将 0 移动到数组的最后面，非零元素保持原数组的顺序。">
+<meta property="og:description" content="From : www.LintCode.com描述给一个数组 nums 写一个函数将 0 移动到数组的最后面，非零元素保持原数组的顺序。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-09-11T16:24:17.781Z">
+<meta property="og:updated_time" content="2017-09-15T16:23:25.604Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="移动零">
-<meta name="twitter:description" content="From : www.LintCode.com移动零描述给一个数组 nums 写一个函数将 0 移动到数组的最后面，非零元素保持原数组的顺序。">
+<meta name="twitter:description" content="From : www.LintCode.com描述给一个数组 nums 写一个函数将 0 移动到数组的最后面，非零元素保持原数组的顺序。">
   
     <link rel="alternative" href="/atom.xml" title="TR&#39;s Blog" type="application/atom+xml">
   
@@ -179,7 +179,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="From-www-LintCode-com"><a href="#From-www-LintCode-com" class="headerlink" title="From : www.LintCode.com"></a><em>From : www.LintCode.com</em></h1><h2 id="移动零"><a href="#移动零" class="headerlink" title="移动零"></a>移动零</h2><p><strong>描述</strong><br>给一个数组 nums 写一个函数将 0 移动到数组的最后面，非零元素保持原数组的顺序。<br><a id="more"></a><br><strong>注意</strong><br>1.必须在原数组上操作<br>2.最小化操作数  </p>
+        <h2 id="From-www-LintCode-com"><a href="#From-www-LintCode-com" class="headerlink" title="From : www.LintCode.com"></a><em>From : www.LintCode.com</em></h2><p><strong>描述</strong><br>给一个数组 nums 写一个函数将 0 移动到数组的最后面，非零元素保持原数组的顺序。<br><a id="more"></a><br><strong>注意</strong><br>1.必须在原数组上操作<br>2.最小化操作数  </p>
 <p><strong>样例</strong><br>给出nums = [0, 1, 0, 3, 12]，<br>调用函数之后, nums = [1, 3, 12, 0, 0].</p>
 <h2 id="解决方案一"><a href="#解决方案一" class="headerlink" title="解决方案一"></a>解决方案一</h2><p>此题与LeetCode中的一题很相似。参见<a href="https://github.com/tanranuncle/LeetCode-LintCode/blob/master/MyLeetCode/easy/2.Remove%20Element.md" target="_blank" rel="external">Remove Element</a><br>解决思路：<br>首先，定义一个标记index，来标记非0数存放的位置。<br>然后，遍历数组，将所有的非0数都放在index所标记的位置，<br>每放一个元素，index标记后移一位。<br>遍历结束后，将index及index之后的元素全部置0。</p>
 <h2 id="代码实现（JAVA）"><a href="#代码实现（JAVA）" class="headerlink" title="代码实现（JAVA）"></a>代码实现（JAVA）</h2><pre><code>public class Solution {
@@ -368,7 +368,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#From-www-LintCode-com"><span class="toc-number">1.</span> <span class="toc-text">From : www.LintCode.com</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#移动零"><span class="toc-number">1.1.</span> <span class="toc-text">移动零</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方案一"><span class="toc-number">1.2.</span> <span class="toc-text">解决方案一</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码实现（JAVA）"><span class="toc-number">1.3.</span> <span class="toc-text">代码实现（JAVA）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">1.4.</span> <span class="toc-text">总结</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#From-www-LintCode-com"><span class="toc-number">1.</span> <span class="toc-text">From : www.LintCode.com</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方案一"><span class="toc-number">2.</span> <span class="toc-text">解决方案一</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码实现（JAVA）"><span class="toc-number">3.</span> <span class="toc-text">代码实现（JAVA）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li></ol>
                     </div>
                 </span>
             </div>

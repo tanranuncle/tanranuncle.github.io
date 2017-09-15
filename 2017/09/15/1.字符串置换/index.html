@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://www.mwxu16.cn">
   <title>字符串置换 | TR&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="From : www.LintCode.com字符串置换描述 给定两个字符串，请设计一个方法来判定其中一个字符串是否为另一个字符串的置换。 置换的意思是，通过改变顺序可以使得两个字符串相等。">
+  <meta name="description" content="From : www.LintCode.com描述给定两个字符串，请设计一个方法来判定其中一个字符串是否为另一个字符串的置换。置换的意思是，通过改变顺序可以使得两个字符串相等。">
 <meta name="keywords" content="algorithm,easy,LintCode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="字符串置换">
 <meta property="og:url" content="http://www.mwxu16.cn/2017/09/15/1.字符串置换/index.html">
 <meta property="og:site_name" content="TR&#39;s Blog">
-<meta property="og:description" content="From : www.LintCode.com字符串置换描述 给定两个字符串，请设计一个方法来判定其中一个字符串是否为另一个字符串的置换。 置换的意思是，通过改变顺序可以使得两个字符串相等。">
+<meta property="og:description" content="From : www.LintCode.com描述给定两个字符串，请设计一个方法来判定其中一个字符串是否为另一个字符串的置换。置换的意思是，通过改变顺序可以使得两个字符串相等。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-09-11T16:24:12.462Z">
+<meta property="og:updated_time" content="2017-09-15T16:21:19.147Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="字符串置换">
-<meta name="twitter:description" content="From : www.LintCode.com字符串置换描述 给定两个字符串，请设计一个方法来判定其中一个字符串是否为另一个字符串的置换。 置换的意思是，通过改变顺序可以使得两个字符串相等。">
+<meta name="twitter:description" content="From : www.LintCode.com描述给定两个字符串，请设计一个方法来判定其中一个字符串是否为另一个字符串的置换。置换的意思是，通过改变顺序可以使得两个字符串相等。">
   
     <link rel="alternative" href="/atom.xml" title="TR&#39;s Blog" type="application/atom+xml">
   
@@ -179,11 +179,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="From-www-LintCode-com"><a href="#From-www-LintCode-com" class="headerlink" title="From : www.LintCode.com"></a><em>From : www.LintCode.com</em></h1><h2 id="字符串置换"><a href="#字符串置换" class="headerlink" title="字符串置换"></a>字符串置换</h2><p><strong>描述</strong></p>
-<p>给定两个字符串，请设计一个方法来判定其中一个字符串是否为另一个字符串的置换。</p>
-<p>置换的意思是，通过改变顺序可以使得两个字符串相等。<br> <a id="more"></a> </p>
-<p><strong>样例</strong><br>“abc” 为 “cba” 的置换。</p>
-<p>“aabc” 不是 “abcc” 的置换。</p>
+        <h2 id="From-www-LintCode-com"><a href="#From-www-LintCode-com" class="headerlink" title="From : www.LintCode.com"></a><em>From : www.LintCode.com</em></h2><p><strong>描述</strong><br>给定两个字符串，请设计一个方法来判定其中一个字符串是否为另一个字符串的置换。<br>置换的意思是，通过改变顺序可以使得两个字符串相等。<br> <a id="more"></a> </p>
+<p><strong>样例</strong><br>“abc” 为 “cba” 的置换。<br>“aabc” 不是 “abcc” 的置换。</p>
 <h2 id="解决方案一"><a href="#解决方案一" class="headerlink" title="解决方案一"></a>解决方案一</h2><p>本方案思想：<br>若两个字符串是置换，则两个字符串中的字符种类及每种字符出现的次数必须是相同的。<br>首先，将字符串参数转为字符数组。<br>先比较两个字符数组的长度是否相等，若不相等，肯定不符合要求。<br>若长度相等，则先将数组排序，然后遍历字符数组，依次比较两个数组对应的元素是否相等。<br>若对应元素全部相等，则符合要求，否则，不符合要求。 </p>
 <h2 id="代码实现（JAVA）"><a href="#代码实现（JAVA）" class="headerlink" title="代码实现（JAVA）"></a>代码实现（JAVA）</h2><pre><code>public class Solution {
     /*
@@ -373,7 +370,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#From-www-LintCode-com"><span class="toc-number">1.</span> <span class="toc-text">From : www.LintCode.com</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#字符串置换"><span class="toc-number">1.1.</span> <span class="toc-text">字符串置换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方案一"><span class="toc-number">1.2.</span> <span class="toc-text">解决方案一</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码实现（JAVA）"><span class="toc-number">1.3.</span> <span class="toc-text">代码实现（JAVA）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">1.4.</span> <span class="toc-text">总结</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#From-www-LintCode-com"><span class="toc-number">1.</span> <span class="toc-text">From : www.LintCode.com</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方案一"><span class="toc-number">2.</span> <span class="toc-text">解决方案一</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码实现（JAVA）"><span class="toc-number">3.</span> <span class="toc-text">代码实现（JAVA）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li></ol>
                     </div>
                 </span>
             </div>

@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://www.mwxu16.cn">
   <title>单例 | TR&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="From : www.LintCode.com单例描述 单例是最为最常见的设计模式之一。对于任何时刻，如果某个类只存在且最多存在一个具体的实例，那么我们称这种设计模式为单例。例如，对于 class Mouse (不是动物的mouse哦)，我们应将其设计为 singleton 模式。 你的任务是设计一个 getInstance 方法，对于给定的类，每次调用 getInstance 时，都可得到同一个">
+  <meta name="description" content="From : www.LintCode.com描述单例是最为最常见的设计模式之一。对于任何时刻，如果某个类只存在且最多存在一个具体的实例，那么我们称这种设计模式为单例。例如，对于 class Mouse (不是动物的mouse哦)，我们应将其设计为 singleton 模式。你的任务是设计一个 getInstance 方法，对于给定的类，每次调用 getInstance 时，都可得到同一个实例。">
 <meta name="keywords" content="algorithm,LintCode,剑指offer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="单例">
 <meta property="og:url" content="http://www.mwxu16.cn/2017/09/15/2.单例/index.html">
 <meta property="og:site_name" content="TR&#39;s Blog">
-<meta property="og:description" content="From : www.LintCode.com单例描述 单例是最为最常见的设计模式之一。对于任何时刻，如果某个类只存在且最多存在一个具体的实例，那么我们称这种设计模式为单例。例如，对于 class Mouse (不是动物的mouse哦)，我们应将其设计为 singleton 模式。 你的任务是设计一个 getInstance 方法，对于给定的类，每次调用 getInstance 时，都可得到同一个">
+<meta property="og:description" content="From : www.LintCode.com描述单例是最为最常见的设计模式之一。对于任何时刻，如果某个类只存在且最多存在一个具体的实例，那么我们称这种设计模式为单例。例如，对于 class Mouse (不是动物的mouse哦)，我们应将其设计为 singleton 模式。你的任务是设计一个 getInstance 方法，对于给定的类，每次调用 getInstance 时，都可得到同一个实例。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-09-11T16:24:59.469Z">
+<meta property="og:updated_time" content="2017-09-15T16:23:15.699Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="单例">
-<meta name="twitter:description" content="From : www.LintCode.com单例描述 单例是最为最常见的设计模式之一。对于任何时刻，如果某个类只存在且最多存在一个具体的实例，那么我们称这种设计模式为单例。例如，对于 class Mouse (不是动物的mouse哦)，我们应将其设计为 singleton 模式。 你的任务是设计一个 getInstance 方法，对于给定的类，每次调用 getInstance 时，都可得到同一个">
+<meta name="twitter:description" content="From : www.LintCode.com描述单例是最为最常见的设计模式之一。对于任何时刻，如果某个类只存在且最多存在一个具体的实例，那么我们称这种设计模式为单例。例如，对于 class Mouse (不是动物的mouse哦)，我们应将其设计为 singleton 模式。你的任务是设计一个 getInstance 方法，对于给定的类，每次调用 getInstance 时，都可得到同一个实例。">
   
     <link rel="alternative" href="/atom.xml" title="TR&#39;s Blog" type="application/atom+xml">
   
@@ -179,10 +179,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="From-www-LintCode-com"><a href="#From-www-LintCode-com" class="headerlink" title="From : www.LintCode.com"></a><em>From : www.LintCode.com</em></h1><h2 id="单例"><a href="#单例" class="headerlink" title="单例"></a>单例</h2><p><strong>描述</strong></p>
-<p><strong>单例</strong>是最为最常见的设计模式之一。对于任何时刻，如果某个类只存在且最多存在一个具体的实例，那么我们称这种设计模式为单例。例如，对于 class Mouse (不是动物的mouse哦)，我们应将其设计为 singleton 模式。</p>
-<p>你的任务是设计一个 getInstance 方法，对于给定的类，每次调用 getInstance 时，都可得到同一个实例。<br> <a id="more"></a> </p>
-<p><strong>样例</strong><br>在 Java 中:  </p>
+        <h2 id="From-www-LintCode-com"><a href="#From-www-LintCode-com" class="headerlink" title="From : www.LintCode.com"></a><em>From : www.LintCode.com</em></h2><p><strong>描述</strong><br>单例是最为最常见的设计模式之一。对于任何时刻，如果某个类只存在且最多存在一个具体的实例，那么我们称这种设计模式为单例。例如，对于 class Mouse (不是动物的mouse哦)，我们应将其设计为 singleton 模式。<br>你的任务是设计一个 getInstance 方法，对于给定的类，每次调用 getInstance 时，都可得到同一个实例。<br> <a id="more"></a> </p>
+<p><strong>样例</strong><br>在 Java 中:</p>
 <pre><code>A a = A.getInstance();
 A b = A.getInstance();
 </code></pre><p>a 应等于 b.</p>
@@ -359,7 +357,7 @@ A b = A.getInstance();
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#From-www-LintCode-com"><span class="toc-number">1.</span> <span class="toc-text">From : www.LintCode.com</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#单例"><span class="toc-number">1.1.</span> <span class="toc-text">单例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方案一"><span class="toc-number">1.2.</span> <span class="toc-text">解决方案一</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码实现（JAVA）"><span class="toc-number">1.3.</span> <span class="toc-text">代码实现（JAVA）</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#From-www-LintCode-com"><span class="toc-number">1.</span> <span class="toc-text">From : www.LintCode.com</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方案一"><span class="toc-number">2.</span> <span class="toc-text">解决方案一</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码实现（JAVA）"><span class="toc-number">3.</span> <span class="toc-text">代码实现（JAVA）</span></a></li></ol>
                     </div>
                 </span>
             </div>

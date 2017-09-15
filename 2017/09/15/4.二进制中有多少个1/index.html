@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://www.mwxu16.cn">
   <title>二进制中有多少个1 | TR&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="From : www.LintCode.com二进制中有多少个1描述 计算在一个 32 位的整数的二进制表示中有多少个 1.">
+  <meta name="description" content="From : www.LintCode.com描述计算在一个 32 位的整数的二进制表示中有多少个 1.">
 <meta name="keywords" content="algorithm,LintCode,剑指offer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="二进制中有多少个1">
 <meta property="og:url" content="http://www.mwxu16.cn/2017/09/15/4.二进制中有多少个1/index.html">
 <meta property="og:site_name" content="TR&#39;s Blog">
-<meta property="og:description" content="From : www.LintCode.com二进制中有多少个1描述 计算在一个 32 位的整数的二进制表示中有多少个 1.">
+<meta property="og:description" content="From : www.LintCode.com描述计算在一个 32 位的整数的二进制表示中有多少个 1.">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-09-11T16:25:12.557Z">
+<meta property="og:updated_time" content="2017-09-15T16:24:52.972Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="二进制中有多少个1">
-<meta name="twitter:description" content="From : www.LintCode.com二进制中有多少个1描述 计算在一个 32 位的整数的二进制表示中有多少个 1.">
+<meta name="twitter:description" content="From : www.LintCode.com描述计算在一个 32 位的整数的二进制表示中有多少个 1.">
   
     <link rel="alternative" href="/atom.xml" title="TR&#39;s Blog" type="application/atom+xml">
   
@@ -179,11 +179,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="From-www-LintCode-com"><a href="#From-www-LintCode-com" class="headerlink" title="From : www.LintCode.com"></a><em>From : www.LintCode.com</em></h1><h2 id="二进制中有多少个1"><a href="#二进制中有多少个1" class="headerlink" title="二进制中有多少个1"></a>二进制中有多少个1</h2><p><strong>描述</strong></p>
-<p>计算在一个 32 位的整数的二进制表示中有多少个 1.<br><a id="more"></a>  </p>
-<p><strong>样例</strong><br>给定 32 (100000)，返回 1</p>
-<p>给定 5 (101)，返回 2</p>
-<p>给定 1023 (111111111)，返回 9</p>
+        <h2 id="From-www-LintCode-com"><a href="#From-www-LintCode-com" class="headerlink" title="From : www.LintCode.com"></a><em>From : www.LintCode.com</em></h2><p><strong>描述</strong><br>计算在一个 32 位的整数的二进制表示中有多少个 1.<br><a id="more"></a>  </p>
+<p><strong>样例</strong><br>给定 32 (100000)，返回 1<br>给定 5 (101)，返回 2<br>给定 1023 (111111111)，返回 9</p>
 <h2 id="解决方案一"><a href="#解决方案一" class="headerlink" title="解决方案一"></a>解决方案一</h2><p>本方案思想：<br>首先，将十进制的参数转为二进制，这里可以直接调用API来转换。<br>转换后的结果是一个字符串。<br>将该字符串转换为字符数组，遍历字符数组，统计其中1的个数。<br>返回1的个数。  </p>
 <h2 id="代码实现（JAVA）"><a href="#代码实现（JAVA）" class="headerlink" title="代码实现（JAVA）"></a>代码实现（JAVA）</h2><pre><code>public class Solution {
 /**
@@ -370,7 +367,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#From-www-LintCode-com"><span class="toc-number">1.</span> <span class="toc-text">From : www.LintCode.com</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#二进制中有多少个1"><span class="toc-number">1.1.</span> <span class="toc-text">二进制中有多少个1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方案一"><span class="toc-number">1.2.</span> <span class="toc-text">解决方案一</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码实现（JAVA）"><span class="toc-number">1.3.</span> <span class="toc-text">代码实现（JAVA）</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#From-www-LintCode-com"><span class="toc-number">1.</span> <span class="toc-text">From : www.LintCode.com</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方案一"><span class="toc-number">2.</span> <span class="toc-text">解决方案一</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码实现（JAVA）"><span class="toc-number">3.</span> <span class="toc-text">代码实现（JAVA）</span></a></li></ol>
                     </div>
                 </span>
             </div>

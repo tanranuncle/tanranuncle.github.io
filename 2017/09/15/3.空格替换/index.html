@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://www.mwxu16.cn">
   <title>空格替换 | TR&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="From : www.LintCode.com3.空格替换描述设计一种方法，将一个字符串中的所有空格替换成 %20 。你可以假设该字符串有足够的空间来加入新的字符，且你得到的是“真实的”字符长度。你的程序还需要返回被替换后的字符串的长度。">
+  <meta name="description" content="From : www.LintCode.com描述设计一种方法，将一个字符串中的所有空格替换成 %20 。你可以假设该字符串有足够的空间来加入新的字符，且你得到的是“真实的”字符长度。你的程序还需要返回被替换后的字符串的长度。">
 <meta name="keywords" content="algorithm,LintCode,剑指offer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="空格替换">
 <meta property="og:url" content="http://www.mwxu16.cn/2017/09/15/3.空格替换/index.html">
 <meta property="og:site_name" content="TR&#39;s Blog">
-<meta property="og:description" content="From : www.LintCode.com3.空格替换描述设计一种方法，将一个字符串中的所有空格替换成 %20 。你可以假设该字符串有足够的空间来加入新的字符，且你得到的是“真实的”字符长度。你的程序还需要返回被替换后的字符串的长度。">
+<meta property="og:description" content="From : www.LintCode.com描述设计一种方法，将一个字符串中的所有空格替换成 %20 。你可以假设该字符串有足够的空间来加入新的字符，且你得到的是“真实的”字符长度。你的程序还需要返回被替换后的字符串的长度。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-09-11T16:25:08.534Z">
+<meta property="og:updated_time" content="2017-09-15T16:23:55.443Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="空格替换">
-<meta name="twitter:description" content="From : www.LintCode.com3.空格替换描述设计一种方法，将一个字符串中的所有空格替换成 %20 。你可以假设该字符串有足够的空间来加入新的字符，且你得到的是“真实的”字符长度。你的程序还需要返回被替换后的字符串的长度。">
+<meta name="twitter:description" content="From : www.LintCode.com描述设计一种方法，将一个字符串中的所有空格替换成 %20 。你可以假设该字符串有足够的空间来加入新的字符，且你得到的是“真实的”字符长度。你的程序还需要返回被替换后的字符串的长度。">
   
     <link rel="alternative" href="/atom.xml" title="TR&#39;s Blog" type="application/atom+xml">
   
@@ -179,7 +179,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="From-www-LintCode-com"><a href="#From-www-LintCode-com" class="headerlink" title="From : www.LintCode.com"></a><em>From : www.LintCode.com</em></h1><h2 id="3-空格替换"><a href="#3-空格替换" class="headerlink" title="3.空格替换"></a>3.空格替换</h2><p><strong>描述</strong><br>设计一种方法，将一个字符串中的所有空格替换成 <strong>%20</strong> 。你可以假设该字符串有足够的空间来加入新的字符，且你得到的是“真实的”字符长度。<br>你的程序还需要返回被替换后的字符串的长度。<br><a id="more"></a><br><strong>注意事项</strong><br>如果使用 Java 或 Python, 程序中请用字符数组表示字符串。  </p>
+        <h2 id="From-www-LintCode-com"><a href="#From-www-LintCode-com" class="headerlink" title="From : www.LintCode.com"></a><em>From : www.LintCode.com</em></h2><p><strong>描述</strong><br>设计一种方法，将一个字符串中的所有空格替换成 <strong>%20</strong> 。你可以假设该字符串有足够的空间来加入新的字符，且你得到的是“真实的”字符长度。<br>你的程序还需要返回被替换后的字符串的长度。<br><a id="more"></a><br><strong>注意事项</strong><br>如果使用 Java 或 Python, 程序中请用字符数组表示字符串。  </p>
 <p><strong>样例</strong></p>
 <p>对于字符串<code>Mr John Smith</code>, 长度为 13</p>
 <p>替换空格之后，参数中的字符串需要变为<code>Mr%20John%20Smith</code>，并且把新长度 17 作为结果返回。</p>
@@ -401,7 +401,7 @@ public int replaceBlank(char[] string, int length) {
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#From-www-LintCode-com"><span class="toc-number">1.</span> <span class="toc-text">From : www.LintCode.com</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-空格替换"><span class="toc-number">1.1.</span> <span class="toc-text">3.空格替换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方案一"><span class="toc-number">1.2.</span> <span class="toc-text">解决方案一</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#注意：这是一个不能被系统接受的方案。下面的解决方案二才是可以被系统接受的。"><span class="toc-number">1.2.1.</span> <span class="toc-text">注意：这是一个不能被系统接受的方案。下面的解决方案二才是可以被系统接受的。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码实现（JAVA）"><span class="toc-number">1.3.</span> <span class="toc-text">代码实现（JAVA）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方案二"><span class="toc-number">1.4.</span> <span class="toc-text">解决方案二</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码实现"><span class="toc-number">1.5.</span> <span class="toc-text">代码实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">1.6.</span> <span class="toc-text">总结</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#From-www-LintCode-com"><span class="toc-number">1.</span> <span class="toc-text">From : www.LintCode.com</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方案一"><span class="toc-number">2.</span> <span class="toc-text">解决方案一</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#注意：这是一个不能被系统接受的方案。下面的解决方案二才是可以被系统接受的。"><span class="toc-number">2.1.</span> <span class="toc-text">注意：这是一个不能被系统接受的方案。下面的解决方案二才是可以被系统接受的。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码实现（JAVA）"><span class="toc-number">3.</span> <span class="toc-text">代码实现（JAVA）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方案二"><span class="toc-number">4.</span> <span class="toc-text">解决方案二</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码实现"><span class="toc-number">5.</span> <span class="toc-text">代码实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">6.</span> <span class="toc-text">总结</span></a></li></ol>
                     </div>
                 </span>
             </div>
