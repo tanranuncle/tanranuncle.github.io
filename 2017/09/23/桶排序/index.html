@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.mwxu16.cn">
-  <title>Archives | TR&#39;s Blog</title>
+  <title>桶排序 | TR&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="һֻ����ɵ�С�۷�">
-<meta property="og:type" content="website">
-<meta property="og:title" content="TR&#39;s Blog">
-<meta property="og:url" content="http://www.mwxu16.cn/archives/page/2/index.html">
+  <meta name="description" content="From : www.mwxu16.cn简介从某种程度上讲，桶排序可以说是最快最简单的一种排序算法了，但是缺点也是很明显的，那就是适用范围太小。当待排序的数范围很大时，非常的消耗内存（比如说排序的数的范围是1到1亿，就必须创建1亿个桶（长度为1亿的一维数组，当然这只是假设，并不能创建这么大的数组））。注意，这里说的是数的范围，而不是实际要排序的数的个数。例如，第一种情况，只需要排序两个数，1和10">
+<meta name="keywords" content="algorithm,sort">
+<meta property="og:type" content="article">
+<meta property="og:title" content="桶排序">
+<meta property="og:url" content="http://www.mwxu16.cn/2017/09/23/桶排序/index.html">
 <meta property="og:site_name" content="TR&#39;s Blog">
-<meta property="og:description" content="һֻ����ɵ�С�۷�">
+<meta property="og:description" content="From : www.mwxu16.cn简介从某种程度上讲，桶排序可以说是最快最简单的一种排序算法了，但是缺点也是很明显的，那就是适用范围太小。当待排序的数范围很大时，非常的消耗内存（比如说排序的数的范围是1到1亿，就必须创建1亿个桶（长度为1亿的一维数组，当然这只是假设，并不能创建这么大的数组））。注意，这里说的是数的范围，而不是实际要排序的数的个数。例如，第一种情况，只需要排序两个数，1和10">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-09-23T06:07:34.533Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TR&#39;s Blog">
-<meta name="twitter:description" content="һֻ����ɵ�С�۷�">
+<meta name="twitter:title" content="桶排序">
+<meta name="twitter:description" content="From : www.mwxu16.cn简介从某种程度上讲，桶排序可以说是最快最简单的一种排序算法了，但是缺点也是很明显的，那就是适用范围太小。当待排序的数范围很大时，非常的消耗内存（比如说排序的数的范围是1到1亿，就必须创建1亿个桶（长度为1亿的一维数组，当然这只是假设，并不能创建这么大的数组））。注意，这里说的是数的范围，而不是实际要排序的数的个数。例如，第一种情况，只需要排序两个数，1和10">
   
     <link rel="alternative" href="/atom.xml" title="TR&#39;s Blog" type="application/atom+xml">
   
@@ -157,36 +159,108 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-桶排序" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      桶排序
+    </h1>
+  
+
+        
+        <a href="/2017/09/23/桶排序/" class="archive-article-date">
+  	<time datetime="2017-09-23T05:51:16.018Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-23</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="From-www-mwxu16-cn"><a href="#From-www-mwxu16-cn" class="headerlink" title="From : www.mwxu16.cn"></a><em>From : www.mwxu16.cn</em></h2><p><strong>简介</strong><br>从某种程度上讲，桶排序可以说是最快最简单的一种排序算法了，但是缺点也是很明显的，那就是适用范围太小。当待排序的数范围很大时，非常的消耗内存（比如说排序的数的范围是1到1亿，就必须创建1亿个桶（长度为1亿的一维数组，当然这只是假设，并不能创建这么大的数组））。<br>注意，这里说的是数的范围，而不是实际要排序的数的个数。<br>例如，第一种情况，只需要排序两个数，1和1000000。第二种情况，需要排序1000000个数，这些数的范围是1到1000000。那么，这两张情况使用桶排序所用的时间和内存是一样的（理想状态下）</p>
+<a id="more"></a>
+<p><strong>算法思想</strong></p>
+<p>假如待排序数的范围是0到1000，那么就需要创建一个长度为1001的一维数组，并初始化为0。<br>然后遍历待排序的数，每出现一次就把该数对应的桶的值加一。<br>例如出现了一个3，就把编号为3的桶加一。<br>输出的时候，只需要遍历所有的桶，桶的值是几，就输出几次桶的编号。<br>如编号为4的桶的值为2，就输出两次4即可。（值为2说明待排序的数中，4出现了两次）</p>
+<h2 id="代码实现（JAVA）"><a href="#代码实现（JAVA）" class="headerlink" title="代码实现（JAVA）"></a>代码实现（JAVA）</h2><pre><code>package cn.mwxu16.suanfa;
+/*
+ * 桶排序算法
+ * 算法思想：
+ * 假如需要排序的数的范围是1-1000，那么就要准备1000个桶（即一个长度为1000的数组）
+ * 将数组初始化为0
+ * 每输入一个数，就让该数对应的桶数值加1
+ * 遍历输出桶，桶的数值是几就输出几次，桶的编号是几就输出几
+ * 如：编号为2的桶数组为3，即输出3个2
+ * 优点：速度快
+ * 缺点：当待排序数范围很大时，太消耗内存。且数不连续时，也浪费资源
+ */
+public class Tong_sort {
+     public static void main(String[] args) {
+           int N = 1001;        //定义待排序数的最大范围数加一（不包括该值）
+           int [] arr ={1,9,44,22,8,456,324,876,523,97,68};     //将待排序的数存入数组中（当然实际操作中也可以直接从键盘输入）
+           tong_sort(N,arr);    //将范围和待排序数传入桶排序方法中
+     }
+     public static void tong_sort(int N,int [] arr){
+           //定义N个桶
+           int [] book = new int [N];
+           //初始化桶
+           for(int i = 0;i&lt;N;i++){
+                book[i] = 0;
+           }
+           //开始桶排序
+           //遍历待排序数，并把待排序数对应的桶++，
+           for(int i = 0;i&lt;arr.length ;i++){
+                book[arr[i]]++;      //这里是把待排序数对应的桶的值加一
+           }
+           //从小到大输出
+           //遍历桶，若桶的值x，则输出该桶的编号x次
+           for(int i=0;i&lt;N;i++){
+                for(int k=0;k&lt;book[i];k++){
+                     System.out.print(i+&quot; &quot;);
+                }
+           }
+     }
+}
+</code></pre>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/images/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/images/wechat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/15/2.单例/" class="archive-article-date">
-  	<time datetime="2017-09-15T14:03:49.161Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/15/2.单例/">单例</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -196,243 +270,122 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LintCode</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">剑指offer</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">sort</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://www.mwxu16.cn/2017/09/23/桶排序/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/15/2.Remove Element/" class="archive-article-date">
-  	<time datetime="2017-09-15T14:03:49.158Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-15</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2017/09/21/随笔【google】/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">谁在抄谁？</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/15/2.Remove Element/">Remove Element</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">algorithm</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">easy</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#From-www-mwxu16-cn"><span class="toc-number">1.</span> <span class="toc-text">From : www.mwxu16.cn</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码实现（JAVA）"><span class="toc-number">2.</span> <span class="toc-text">代码实现（JAVA）</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/15/1.字符串置换/" class="archive-article-date">
-  	<time datetime="2017-09-15T14:03:49.155Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-15</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/15/1.字符串置换/">字符串置换</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">algorithm</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LintCode</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">easy</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/15/1.twoSum/" class="archive-article-date">
-  	<time datetime="2017-09-15T14:03:49.152Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/15/1.twoSum/">twoSum</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">algorithm</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">easy</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/15/1.Fibonacci/" class="archive-article-date">
-  	<time datetime="2017-09-15T14:03:49.149Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/15/1.Fibonacci/">Fibonacii</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">algorithm</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LintCode</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">剑指offer</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/15/hello-world/" class="archive-article-date">
-  	<time datetime="2017-09-15T13:50:02.679Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/15/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
-    </nav>
   
 
 
@@ -464,8 +417,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
