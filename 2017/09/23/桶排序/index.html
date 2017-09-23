@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://www.mwxu16.cn">
   <title>桶排序 | TR&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="From : www.mwxu16.cn简介从某种程度上讲，桶排序可以说是最快最简单的一种排序算法了，但是缺点也是很明显的，那就是适用范围太小。当待排序的数范围很大时，非常的消耗内存（比如说排序的数的范围是1到1亿，就必须创建1亿个桶（长度为1亿的一维数组，当然这只是假设，并不能创建这么大的数组））。注意，这里说的是数的范围，而不是实际要排序的数的个数。例如，第一种情况，只需要排序两个数，1和10">
+  <meta name="description" content="From : www.mwxu16.cn简介从某种程度上讲，桶排序可以说是最快最简单的一种排序算法了，但是缺点也是很明显的，那就是适用范围太小。当待排序的数范围很大时，非常的消耗内存（比如说排序的数的范围是1到1亿，就必须创建1亿个桶（长度为1亿的一维数组，当然这只是假设，并不能创建这么大的数组））。">
 <meta name="keywords" content="algorithm,sort">
 <meta property="og:type" content="article">
 <meta property="og:title" content="桶排序">
 <meta property="og:url" content="http://www.mwxu16.cn/2017/09/23/桶排序/index.html">
 <meta property="og:site_name" content="TR&#39;s Blog">
-<meta property="og:description" content="From : www.mwxu16.cn简介从某种程度上讲，桶排序可以说是最快最简单的一种排序算法了，但是缺点也是很明显的，那就是适用范围太小。当待排序的数范围很大时，非常的消耗内存（比如说排序的数的范围是1到1亿，就必须创建1亿个桶（长度为1亿的一维数组，当然这只是假设，并不能创建这么大的数组））。注意，这里说的是数的范围，而不是实际要排序的数的个数。例如，第一种情况，只需要排序两个数，1和10">
+<meta property="og:description" content="From : www.mwxu16.cn简介从某种程度上讲，桶排序可以说是最快最简单的一种排序算法了，但是缺点也是很明显的，那就是适用范围太小。当待排序的数范围很大时，非常的消耗内存（比如说排序的数的范围是1到1亿，就必须创建1亿个桶（长度为1亿的一维数组，当然这只是假设，并不能创建这么大的数组））。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-09-23T06:07:34.533Z">
+<meta property="og:updated_time" content="2017-09-23T06:55:56.583Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="桶排序">
-<meta name="twitter:description" content="From : www.mwxu16.cn简介从某种程度上讲，桶排序可以说是最快最简单的一种排序算法了，但是缺点也是很明显的，那就是适用范围太小。当待排序的数范围很大时，非常的消耗内存（比如说排序的数的范围是1到1亿，就必须创建1亿个桶（长度为1亿的一维数组，当然这只是假设，并不能创建这么大的数组））。注意，这里说的是数的范围，而不是实际要排序的数的个数。例如，第一种情况，只需要排序两个数，1和10">
+<meta name="twitter:description" content="From : www.mwxu16.cn简介从某种程度上讲，桶排序可以说是最快最简单的一种排序算法了，但是缺点也是很明显的，那就是适用范围太小。当待排序的数范围很大时，非常的消耗内存（比如说排序的数的范围是1到1亿，就必须创建1亿个桶（长度为1亿的一维数组，当然这只是假设，并不能创建这么大的数组））。">
   
     <link rel="alternative" href="/atom.xml" title="TR&#39;s Blog" type="application/atom+xml">
   
@@ -179,8 +179,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="From-www-mwxu16-cn"><a href="#From-www-mwxu16-cn" class="headerlink" title="From : www.mwxu16.cn"></a><em>From : www.mwxu16.cn</em></h2><p><strong>简介</strong><br>从某种程度上讲，桶排序可以说是最快最简单的一种排序算法了，但是缺点也是很明显的，那就是适用范围太小。当待排序的数范围很大时，非常的消耗内存（比如说排序的数的范围是1到1亿，就必须创建1亿个桶（长度为1亿的一维数组，当然这只是假设，并不能创建这么大的数组））。<br>注意，这里说的是数的范围，而不是实际要排序的数的个数。<br>例如，第一种情况，只需要排序两个数，1和1000000。第二种情况，需要排序1000000个数，这些数的范围是1到1000000。那么，这两张情况使用桶排序所用的时间和内存是一样的（理想状态下）</p>
+        <h2 id="From-www-mwxu16-cn"><a href="#From-www-mwxu16-cn" class="headerlink" title="From : www.mwxu16.cn"></a><em>From : www.mwxu16.cn</em></h2><p><strong>简介</strong><br>从某种程度上讲，桶排序可以说是最快最简单的一种排序算法了，但是缺点也是很明显的，那就是适用范围太小。当待排序的数范围很大时，非常的消耗内存（比如说排序的数的范围是1到1亿，就必须创建1亿个桶（长度为1亿的一维数组，当然这只是假设，并不能创建这么大的数组））。  </p>
 <a id="more"></a>
+<p>注意，这里说的是数的范围，而不是实际要排序的数的个数。<br>例如，第一种情况，只需要排序两个数，1和1000000。第二种情况，需要排序1000000个数，这些数的范围是1到1000000。那么，这两张情况使用桶排序所用的时间和内存是一样的（理想状态下）</p>
 <p><strong>算法思想</strong></p>
 <p>假如待排序数的范围是0到1000，那么就需要创建一个长度为1001的一维数组，并初始化为0。<br>然后遍历待排序的数，每出现一次就把该数对应的桶的值加一。<br>例如出现了一个3，就把编号为3的桶加一。<br>输出的时候，只需要遍历所有的桶，桶的值是几，就输出几次桶的编号。<br>如编号为4的桶的值为2，就输出两次4即可。（值为2说明待排序的数中，4出现了两次）</p>
 <h2 id="代码实现（JAVA）"><a href="#代码实现（JAVA）" class="headerlink" title="代码实现（JAVA）"></a>代码实现（JAVA）</h2><pre><code>package cn.mwxu16.suanfa;
@@ -495,15 +496,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">easy</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">剑指offer</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">easy</a>
               </li>
              
               <li class="article-tag-list-item">
