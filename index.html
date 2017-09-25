@@ -180,20 +180,10 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="From-blog-mwxu16-cn"><a href="#From-blog-mwxu16-cn" class="headerlink" title="From : blog.mwxu16.cn"></a><em>From : blog.mwxu16.cn</em></h2><p>SSH三大框架整合，分别导入三大框架的jar包。<br><strong>注意：</strong><br>点击即可下载：<a href="">完整的SSH项目整合Demo</a></p>
-<h3 id="一、导入Hibernate框架所需jar包"><a href="#一、导入Hibernate框架所需jar包" class="headerlink" title="一、导入Hibernate框架所需jar包"></a>一、导入Hibernate框架所需jar包</h3><p>包括框架所需的jar包和数据库驱动包。<br><strong>1、数据库驱动包（以MySQL为例）</strong><br><img src="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506355073/Framework%20integration/0/1.png" alt="">  </p>
-<p><strong>2、框架所需的jar包</strong><br>要导入一个jpa的jar包（是java的持久化规范）<br><img src="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506355085/Framework%20integration/0/2.png" alt="">  </p>
-<p>Hibernate框架下的lib下的required文件夹中的所有jar包（必需jar包）必须导入。<br>其他jar包则根据需要导入。  </p>
-<p><img src="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506355073/Framework%20integration/0/3.png" alt="">  </p>
-<h3 id="二、导入Struts2框架所需jar包"><a href="#二、导入Struts2框架所需jar包" class="headerlink" title="二、导入Struts2框架所需jar包"></a>二、导入Struts2框架所需jar包</h3><p>将Struts2框架下的示例项目中的jar包导入。<br>注意，其中有一个名为<br>javassist-xxxxxxxx.jar的jar包，Hibernate中也导入了这个jar包，因此jar包重复，所以只留下版本较新的一个即可。<br><img src="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506355093/Framework%20integration/0/4.png" alt="">  </p>
-<p>另外需要导入一个插件包（该包在Struts框架下的lib目录下），用于整合Struts和Spring：<br><img src="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506355093/Framework%20integration/0/5.png" alt="">  </p>
-<p>注意：<br>若导入这个包，则项目启动时，Struts2框架会自动寻找Spring容器。因此，若不想整个Struts2框架和Spring框架时，不要导入这个包，否则项目启动时会报错。</p>
-<h3 id="三、导入Spring框架所需jar包"><a href="#三、导入Spring框架所需jar包" class="headerlink" title="三、导入Spring框架所需jar包"></a>三、导入Spring框架所需jar包</h3><p>1、基本包<br>分别是：<br>core、beans、context、expression、logging、log4j<br><img src="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506355093/Framework%20integration/0/6.png" alt="">  </p>
-<p>2、整合web的web包<br><img src="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506355093/Framework%20integration/0/7.png" alt="">   </p>
-<p>3、整合aop的：4个<br><img src="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506355093/Framework%20integration/0/8.png" alt="">  </p>
-<p>4、整合JDBC事务：4个包（其中数据库驱动因为Hibernate导包时已经导过了，因此这里不需要）<br>其中orm包是用来整合Hibernate框架的。<br><img src="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506355093/Framework%20integration/0/9.png" alt="">  </p>
-<p>5、整合Junit4测试：test包<br><img src="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506355093/Framework%20integration/0/10.png" alt="">  </p>
-<h3 id="四、导入jstl标签库"><a href="#四、导入jstl标签库" class="headerlink" title="四、导入jstl标签库"></a>四、导入jstl标签库</h3><p><img src="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506355093/Framework%20integration/0/11.png" alt="">  </p>
-
+<h3 id="一、导入Hibernate框架所需jar包"><a href="#一、导入Hibernate框架所需jar包" class="headerlink" title="一、导入Hibernate框架所需jar包"></a>一、导入Hibernate框架所需jar包</h3><p>包括框架所需的jar包和数据库驱动包。<br>
+        
+          <a class="article-more-a" href="/2017/09/26/SSH_导包/#more">more >></a>
+        
       
 
       
@@ -874,11 +864,11 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">easy</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LintCode</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LintCode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">easy</a>
         		</li>
       		
 		</ul>
@@ -1111,19 +1101,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">easy</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">LintCode</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">剑指offer</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">easy</a>
               </li>
              
               <li class="article-tag-list-item">
