@@ -180,33 +180,10 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="From-blog-mwxu16-cn"><a href="#From-blog-mwxu16-cn" class="headerlink" title="From : blog.mwxu16.cn"></a><em><a href="http://blog.mwxu16.cn" target="_blank" rel="external">From : blog.mwxu16.cn</a></em></h2><p><strong>注意：</strong><br>点击即可下载：<a href="http://download.csdn.net/download/qq_28592887/9994986" target="_blank" rel="external">完整的SSH项目整合Demo</a></p>
-<h3 id="一、创建action"><a href="#一、创建action" class="headerlink" title="一、创建action"></a>一、创建action</h3><p>示例：</p>
-<pre><code>package cn.mwxu16.web.action;
-import com.opensymphony.xwork2.ActionSupport;
-public class UserAction extends ActionSupport{
-
-      public String hello(){
-
-            return SUCCESS;
-      } 
-}
-</code></pre><h3 id="二、创建配置文件"><a href="#二、创建配置文件" class="headerlink" title="二、创建配置文件"></a>二、创建配置文件</h3><p>1、在项目的src路径下，创建一个名为struts.xml的配置文件。<br><img src="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506521154/Framework%20integration/2/1.png" alt=""><br><img src="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506521154/Framework%20integration/2/2.png" alt="">  </p>
-<p>2、并导入约束。<br><img src="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506521154/Framework%20integration/2/3.png" alt=""></p>
-<p>3、将UserAction配置到Struts配置文件中</p>
-<pre><code>&lt;!-- 配置package --&gt;
-      &lt;package name=&quot;ssh&quot; namespace=&quot;/&quot; extends=&quot;struts-default&quot;&gt;
-
-            &lt;!-- 通过动态方法调用，配置action --&gt;
-            &lt;action name=&quot;userAction_*&quot; class=&quot;cn.mwxu16.web.action.UserAction&quot; method=&quot;{1}&quot;&gt;
-                  &lt;result name=&quot;success&quot;&gt;/success.jsp&lt;/result&gt;
-            &lt;/action&gt;
-
-      &lt;/package&gt;
-</code></pre><p>如下图所示：<br><img src="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506521154/Framework%20integration/2/4.png" alt=""></p>
-<h3 id="三、配置Struts2的核心过滤器"><a href="#三、配置Struts2的核心过滤器" class="headerlink" title="三、配置Struts2的核心过滤器"></a>三、配置Struts2的核心过滤器</h3><p>在web.xml文件中配置。<br>过滤器的名字可以随意，上下保持一致即可。<br>全类名需要搜索，具体查找方法参照Struts的笔记。<br>虚拟路径为/*，即希望Struts2框架来过滤所有的请求。<br><img src="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506521154/Framework%20integration/2/5.png" alt=""></p>
-<h3 id="四、创建success-jsp（用于测试）"><a href="#四、创建success-jsp（用于测试）" class="headerlink" title="四、创建success.jsp（用于测试）"></a>四、创建success.jsp（用于测试）</h3><p>页面随便输出一句话即可。</p>
-<p>通过访问配置的Action中的方法，测试是否能转到指定的页面。<br>测试成功即说明Struts2框架单独配置完成。</p>
-
+<h3 id="一、创建action"><a href="#一、创建action" class="headerlink" title="一、创建action"></a>一、创建action</h3><p>示例：<br>
+        
+          <a class="article-more-a" href="/2017/09/27/SSH(第二步)_单独配置Struts2框架到web项目/#more">more >></a>
+        
       
 
       
@@ -1135,19 +1112,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LintCode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">剑指offer</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">easy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">LintCode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">剑指offer</a>
               </li>
              
               <li class="article-tag-list-item">
