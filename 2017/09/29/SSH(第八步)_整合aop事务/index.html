@@ -6,18 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.mwxu16.cn">
-  <title>Tag: Hibernate | TR&#39;s Blog</title>
+  <title>SSH（第八步）—— 整合aop事务 | TR&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="һֻ����ɵ�С�۷�">
-<meta property="og:type" content="website">
-<meta property="og:title" content="TR&#39;s Blog">
-<meta property="og:url" content="http://www.mwxu16.cn/tags/Hibernate/index.html">
+  <meta name="description" content="From : blog.mwxu16.cn注意：点击即可下载：完整的SSH项目整合Demo   整合aop事务有两种方式：1.xml配置的方式2.注解的方式">
+<meta name="keywords" content="Struts2,Spring,Hibernate,Framework">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SSH（第八步）—— 整合aop事务">
+<meta property="og:url" content="http://www.mwxu16.cn/2017/09/29/SSH(第八步)_整合aop事务/index.html">
 <meta property="og:site_name" content="TR&#39;s Blog">
-<meta property="og:description" content="һֻ����ɵ�С�۷�">
+<meta property="og:description" content="From : blog.mwxu16.cn注意：点击即可下载：完整的SSH项目整合Demo   整合aop事务有两种方式：1.xml配置的方式2.注解的方式">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506700734/Framework%20integration/8/1.png">
+<meta property="og:image" content="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506700734/Framework%20integration/8/2.png">
+<meta property="og:image" content="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506700734/Framework%20integration/8/3.png">
+<meta property="og:updated_time" content="2017-09-29T16:00:22.655Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TR&#39;s Blog">
-<meta name="twitter:description" content="һֻ����ɵ�С�۷�">
+<meta name="twitter:title" content="SSH（第八步）—— 整合aop事务">
+<meta name="twitter:description" content="From : blog.mwxu16.cn注意：点击即可下载：完整的SSH项目整合Demo   整合aop事务有两种方式：1.xml配置的方式2.注解的方式">
+<meta name="twitter:image" content="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506700734/Framework%20integration/8/1.png">
   
     <link rel="alternative" href="/atom.xml" title="TR&#39;s Blog" type="application/atom+xml">
   
@@ -157,36 +163,159 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-SSH(第八步)_整合aop事务" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      SSH（第八步）—— 整合aop事务
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/29/SSH(第八步)_整合aop事务/" class="archive-article-date">
+
+        
+        <a href="/2017/09/29/SSH(第八步)_整合aop事务/" class="archive-article-date">
   	<time datetime="2017-09-29T15:55:26.649Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-29</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/29/SSH(第八步)_整合aop事务/">SSH（第八步）—— 整合aop事务</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="From-blog-mwxu16-cn"><a href="#From-blog-mwxu16-cn" class="headerlink" title="From : blog.mwxu16.cn"></a><em><a href="http://blog.mwxu16.cn" target="_blank" rel="external">From : blog.mwxu16.cn</a></em></h2><p><strong>注意：</strong><br>点击即可下载：<a href="http://download.csdn.net/download/qq_28592887/9994986" target="_blank" rel="external">完整的SSH项目整合Demo</a>  </p>
+<p>整合aop事务有两种方式：<br>1.xml配置的方式<br>2.注解的方式<br><a id="more"></a></p>
+<h3 id="准备工作、配置核心事务管理器"><a href="#准备工作、配置核心事务管理器" class="headerlink" title="准备工作、配置核心事务管理器"></a>准备工作、配置核心事务管理器</h3><p>在applicationContext.xml文件中，配置核心事务管理器  </p>
+<pre><code>&lt;!-- 配置核心事务管理器 --&gt;
+      &lt;bean name=&quot;transactionManager&quot; class=&quot;org.springframework.orm.hibernate5.HibernateTransactionManager&quot; &gt;
+            &lt;!-- 注入sessionFactory --&gt;
+            &lt;property name=&quot;sessionFactory&quot; ref=&quot;sessionFactory&quot;&gt;&lt;/property&gt;
+      &lt;/bean&gt;
+</code></pre><h2 id="使用xml配置的方式整合aop事务"><a href="#使用xml配置的方式整合aop事务" class="headerlink" title="使用xml配置的方式整合aop事务"></a>使用xml配置的方式整合aop事务</h2><h3 id="一、配置通知"><a href="#一、配置通知" class="headerlink" title="一、配置通知"></a>一、配置通知</h3><pre><code>&lt;!-- 配置通知 --&gt;
+      &lt;tx:advice id=&quot;txAdvice&quot; transaction-manager=&quot;transactionManager&quot; &gt;
+            &lt;tx:attributes&gt;
+                  &lt;tx:method name=&quot;save*&quot; isolation=&quot;REPEATABLE_READ&quot; propagation=&quot;REQUIRED&quot; read-only=&quot;false&quot; /&gt;
+                  &lt;tx:method name=&quot;persist*&quot; isolation=&quot;REPEATABLE_READ&quot; propagation=&quot;REQUIRED&quot; read-only=&quot;false&quot; /&gt;
+                  &lt;tx:method name=&quot;update*&quot; isolation=&quot;REPEATABLE_READ&quot; propagation=&quot;REQUIRED&quot; read-only=&quot;false&quot; /&gt;
+                  &lt;tx:method name=&quot;modify*&quot; isolation=&quot;REPEATABLE_READ&quot; propagation=&quot;REQUIRED&quot; read-only=&quot;false&quot; /&gt;
+                  &lt;tx:method name=&quot;delete*&quot; isolation=&quot;REPEATABLE_READ&quot; propagation=&quot;REQUIRED&quot; read-only=&quot;false&quot; /&gt;
+                  &lt;tx:method name=&quot;remove*&quot; isolation=&quot;REPEATABLE_READ&quot; propagation=&quot;REQUIRED&quot; read-only=&quot;false&quot; /&gt;
+                  &lt;tx:method name=&quot;get*&quot; isolation=&quot;REPEATABLE_READ&quot; propagation=&quot;REQUIRED&quot; read-only=&quot;true&quot; /&gt;
+                  &lt;tx:method name=&quot;find*&quot; isolation=&quot;REPEATABLE_READ&quot; propagation=&quot;REQUIRED&quot; read-only=&quot;true&quot; /&gt;
+            &lt;/tx:attributes&gt;
+      &lt;/tx:advice&gt;
+</code></pre><p><img src="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506700734/Framework%20integration/8/1.png" alt=""></p>
+<h3 id="二、将通知织入目标对象"><a href="#二、将通知织入目标对象" class="headerlink" title="二、将通知织入目标对象"></a>二、将通知织入目标对象</h3><pre><code>&lt;!-- 配置将通知织入目标对象--&gt;
+      &lt;aop:config&gt;
+            &lt;!-- 配置切点 --&gt;
+            &lt;aop:pointcut expression=&quot;execution(* cn.mwxu16.service.impl.*ServiceImpl.*(..))&quot; id=&quot;txPc&quot;/&gt;
+            &lt;!-- 配置切面 --&gt;
+            &lt;aop:advisor advice-ref=&quot;txAdvice&quot; pointcut-ref=&quot;txPc&quot; /&gt;
+      &lt;/aop:config&gt;
+</code></pre><p><img src="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506700734/Framework%20integration/8/2.png" alt=""></p>
+<p>xml配置事务结束，可以通过下面的测试方法进行测试。  </p>
+<h2 id="使用注解的方式整合aop事务"><a href="#使用注解的方式整合aop事务" class="headerlink" title="使用注解的方式整合aop事务"></a>使用注解的方式整合aop事务</h2><h3 id="一、在applicationContext-xml配置文件中进行配置"><a href="#一、在applicationContext-xml配置文件中进行配置" class="headerlink" title="一、在applicationContext.xml配置文件中进行配置"></a>一、在applicationContext.xml配置文件中进行配置</h3><pre><code>&lt;!-- 开启注解事务 --&gt;
+      &lt;tx:annotation-driven transaction-manager=&quot;transactionManager&quot; /&gt;
+</code></pre><p><img src="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506700734/Framework%20integration/8/3.png" alt=""></p>
+<h3 id="二、在UserServiceImpl类上添加注解"><a href="#二、在UserServiceImpl类上添加注解" class="headerlink" title="二、在UserServiceImpl类上添加注解"></a>二、在UserServiceImpl类上添加注解</h3><pre><code>package cn.mwxu16.service.impl;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+import cn.mwxu16.dao.UserDao;
+import cn.mwxu16.domain.User;
+import cn.mwxu16.service.UserService;
+@Transactional(isolation=Isolation.REPEATABLE_READ,propagation=Propagation.REQUIRED,readOnly=true)
+public class UserServiceImpl implements UserService {
+      private UserDao ud;
+      @Override
+      public User getUserByCodePassword(User u) {
+            //测试输出
+            System.out.println(&quot;UserService&quot;);
+            return null;
+      }
+      @Override
+      @Transactional(isolation=Isolation.REPEATABLE_READ,propagation=Propagation.REQUIRED,readOnly=false)
+      public void saveUser(User u) {
+            // TODO Auto-generated method stub
+            ud.save(u);
+      }
+      public void setUd(UserDao ud) {
+            this.ud = ud;
+      }
+}
+</code></pre><h3 id="三、测试"><a href="#三、测试" class="headerlink" title="三、测试"></a>三、测试</h3><p>通过Junit4测试  </p>
+<pre><code>package cn.mwxu16.test;
+import javax.annotation.Resource;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import cn.mwxu16.dao.UserDao;
+import cn.mwxu16.domain.User;
+import cn.mwxu16.service.UserService;
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(&quot;classpath:applicationContext.xml&quot;)
+public class TestHibernate {
 
-        <div class="article-info info-on-right">
-          
+      //将UserService对象注入进来
+      @Resource(name=&quot;userService&quot;)
+      private UserService us;
+
+      @Test
+      public void fun4() {
+            User u = new User();
+            u.setUser_code(&quot;kangkang&quot;);
+            u.setUser_name(&quot;康康&quot;);
+            u.setUser_password(&quot;123456&quot;);
+
+            us.saveUser(u);
+
+      }
+}
+</code></pre><h3 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h3><p>若成功将用户保存到数据库中，则说明事务整合成功。<br>若事务没有整合成功，将会测试出现异常，<br>因为在没有事务的情况下，所有的操作都是只读操作，不能对数据库进行增删改操作。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/images/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/images/wechat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -210,419 +339,117 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://www.mwxu16.cn/2017/09/29/SSH(第八步)_整合aop事务/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/29/SSH(第七步)_HibernateTemplate模板操作数据库/" class="archive-article-date">
-  	<time datetime="2017-09-29T15:49:33.913Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-29</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2017/09/29/SSH(第七步)_HibernateTemplate模板操作数据库/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SSH（第七步）—— HibernateTemplate模板操作数据库</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/29/SSH(第七步)_HibernateTemplate模板操作数据库/">SSH（第七步）—— HibernateTemplate模板操作数据库</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Struts2</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hibernate</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Framework</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#From-blog-mwxu16-cn"><span class="toc-number">1.</span> <span class="toc-text">From : blog.mwxu16.cn</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#准备工作、配置核心事务管理器"><span class="toc-number">1.1.</span> <span class="toc-text">准备工作、配置核心事务管理器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用xml配置的方式整合aop事务"><span class="toc-number">2.</span> <span class="toc-text">使用xml配置的方式整合aop事务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、配置通知"><span class="toc-number">2.1.</span> <span class="toc-text">一、配置通知</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、将通知织入目标对象"><span class="toc-number">2.2.</span> <span class="toc-text">二、将通知织入目标对象</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用注解的方式整合aop事务"><span class="toc-number">3.</span> <span class="toc-text">使用注解的方式整合aop事务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、在applicationContext-xml配置文件中进行配置"><span class="toc-number">3.1.</span> <span class="toc-text">一、在applicationContext.xml配置文件中进行配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、在UserServiceImpl类上添加注解"><span class="toc-number">3.2.</span> <span class="toc-text">二、在UserServiceImpl类上添加注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、测试"><span class="toc-number">3.3.</span> <span class="toc-text">三、测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注意："><span class="toc-number">3.4.</span> <span class="toc-text">注意：</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/29/SSH(第六步)_整合c3p0连接池/" class="archive-article-date">
-  	<time datetime="2017-09-29T15:45:07.337Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-29</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/29/SSH(第六步)_整合c3p0连接池/">SSH（第六步）—— 整合c3p0连接池</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Struts2</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hibernate</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Framework</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/29/SSH(第五步)_整合Hibernate和Spring/" class="archive-article-date">
-  	<time datetime="2017-09-29T15:37:59.459Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/29/SSH(第五步)_整合Hibernate和Spring/">SSH（第五步）—— 整合Hibernate和Spring</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Struts2</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hibernate</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Framework</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/29/SSH(第四步)_单独配置Hibernate框架到web项目/" class="archive-article-date">
-  	<time datetime="2017-09-29T15:27:38.319Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/29/SSH(第四步)_单独配置Hibernate框架到web项目/">SSH（第四步）—— 单独配置Hibernate框架到web项目</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Struts2</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hibernate</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Framework</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/29/SSH(第三步)_整合Struts2和Spring/" class="archive-article-date">
-  	<time datetime="2017-09-29T15:14:19.805Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/29/SSH(第三步)_整合Struts2和Spring/">SSH（第三步）—— 整合Struts2和Spring</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Struts2</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hibernate</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Framework</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/27/SSH(第二步)_单独配置Struts2框架到web项目/" class="archive-article-date">
-  	<time datetime="2017-09-27T14:06:56.929Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/27/SSH(第二步)_单独配置Struts2框架到web项目/">SSH（第二步）—— 单独配置Struts2框架到web项目</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Struts2</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hibernate</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Framework</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/27/SSH(第一步)_单独配置Spring框架到web项目/" class="archive-article-date">
-  	<time datetime="2017-09-27T13:43:07.245Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/27/SSH(第一步)_单独配置Spring框架到web项目/">SSH（第一步）—— 单独配置Spring框架到web项目</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Struts2</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hibernate</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Framework</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/26/SSH_导包/" class="archive-article-date">
-  	<time datetime="2017-09-25T16:02:59.332Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/26/SSH_导包/">SSH（第零步）—— 导包</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Struts2</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hibernate</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Framework</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -653,9 +480,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
