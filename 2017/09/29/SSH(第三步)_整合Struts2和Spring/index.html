@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="http://www.mwxu16.cn">
   <title>SSH（第三步）—— 整合Struts2和Spring | TR&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="From : blog.mwxu16.cn注意：点击即可下载：完整的SSH项目整合Demo 原理：Spring框架与Struts2框架的整合就是将Struts2框架中的Action对象交给Spring容器负责创建。 一、导包（在第0步导包环节已经导入过了）该jar包用于整Struts2框架和Spring框架。 二、配置常量&amp;lt;constant name=&amp;quot;struts.objectF">
+  <meta name="description" content="From : blog.mwxu16.cn注意：点击即可下载：完整的SSH项目整合Demo 原理：Spring框架与Struts2框架的整合就是将Struts2框架中的Action对象交给Spring容器负责创建。">
 <meta name="keywords" content="Struts2,Spring,Hibernate,Framework">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SSH（第三步）—— 整合Struts2和Spring">
 <meta property="og:url" content="http://www.mwxu16.cn/2017/09/29/SSH(第三步)_整合Struts2和Spring/index.html">
 <meta property="og:site_name" content="TR&#39;s Blog">
-<meta property="og:description" content="From : blog.mwxu16.cn注意：点击即可下载：完整的SSH项目整合Demo 原理：Spring框架与Struts2框架的整合就是将Struts2框架中的Action对象交给Spring容器负责创建。 一、导包（在第0步导包环节已经导入过了）该jar包用于整Struts2框架和Spring框架。 二、配置常量&amp;lt;constant name=&amp;quot;struts.objectF">
+<meta property="og:description" content="From : blog.mwxu16.cn注意：点击即可下载：完整的SSH项目整合Demo 原理：Spring框架与Struts2框架的整合就是将Struts2框架中的Action对象交给Spring容器负责创建。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506698010/Framework%20integration/3/1.png">
 <meta property="og:image" content="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506698010/Framework%20integration/3/2.png">
@@ -26,10 +26,10 @@
 <meta property="og:image" content="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506698010/Framework%20integration/3/8.png">
 <meta property="og:image" content="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506698010/Framework%20integration/3/9.png">
 <meta property="og:image" content="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506698010/Framework%20integration/3/10.png">
-<meta property="og:updated_time" content="2017-09-29T15:22:50.934Z">
+<meta property="og:updated_time" content="2017-09-29T15:33:15.775Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SSH（第三步）—— 整合Struts2和Spring">
-<meta name="twitter:description" content="From : blog.mwxu16.cn注意：点击即可下载：完整的SSH项目整合Demo 原理：Spring框架与Struts2框架的整合就是将Struts2框架中的Action对象交给Spring容器负责创建。 一、导包（在第0步导包环节已经导入过了）该jar包用于整Struts2框架和Spring框架。 二、配置常量&amp;lt;constant name=&amp;quot;struts.objectF">
+<meta name="twitter:description" content="From : blog.mwxu16.cn注意：点击即可下载：完整的SSH项目整合Demo 原理：Spring框架与Struts2框架的整合就是将Struts2框架中的Action对象交给Spring容器负责创建。">
 <meta name="twitter:image" content="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506698010/Framework%20integration/3/1.png">
   
     <link rel="alternative" href="/atom.xml" title="TR&#39;s Blog" type="application/atom+xml">
@@ -191,7 +191,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="From-blog-mwxu16-cn"><a href="#From-blog-mwxu16-cn" class="headerlink" title="From : blog.mwxu16.cn"></a><em><a href="http://blog.mwxu16.cn" target="_blank" rel="external">From : blog.mwxu16.cn</a></em></h2><p><strong>注意：</strong><br>点击即可下载：<a href="http://download.csdn.net/download/qq_28592887/9994986" target="_blank" rel="external">完整的SSH项目整合Demo</a></p>
-<p>原理：<br>Spring框架与Struts2框架的整合<br>就是将Struts2框架中的Action对象交给Spring容器负责创建。</p>
+<p>原理：<br>Spring框架与Struts2框架的整合<br>就是将Struts2框架中的Action对象交给Spring容器负责创建。<br><a id="more"></a></p>
 <h3 id="一、导包（在第0步导包环节已经导入过了）"><a href="#一、导包（在第0步导包环节已经导入过了）" class="headerlink" title="一、导包（在第0步导包环节已经导入过了）"></a>一、导包（在第0步导包环节已经导入过了）</h3><p><img src="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506698010/Framework%20integration/3/1.png" alt=""><br>该jar包用于整Struts2框架和Spring框架。</p>
 <h3 id="二、配置常量"><a href="#二、配置常量" class="headerlink" title="二、配置常量"></a>二、配置常量</h3><pre><code>&lt;constant name=&quot;struts.objectFactory&quot; value=&quot;spring&quot;&gt;&lt;/constant&gt;
 </code></pre><p><img src="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506698010/Framework%20integration/3/2.png" alt="">  </p>
@@ -391,6 +391,15 @@ public class UserAction extends ActionSupport{
   
 <nav id="article-nav">
   
+    <a href="/2017/09/29/SSH(第四步)_单独配置Hibernate框架到web项目/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          SSH（第四步）—— 单独配置Hibernate框架到web项目
+        
+      </div>
+    </a>
+  
   
     <a href="/2017/09/27/SSH(第二步)_单独配置Struts2框架到web项目/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">SSH（第二步）—— 单独配置Struts2框架到web项目</div>
@@ -546,7 +555,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">剑指offer</a>
+                <a href="javascript:void(0)" class="js-tag color5">easy</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -554,7 +563,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">easy</a>
+                <a href="javascript:void(0)" class="js-tag color3">剑指offer</a>
               </li>
              
               <li class="article-tag-list-item">
