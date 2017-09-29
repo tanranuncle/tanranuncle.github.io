@@ -6,22 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.mwxu16.cn">
-  <title>SSH（第四步）—— 单独配置Hibernate框架到web项目 | TR&#39;s Blog</title>
+  <title>SSH（第五步）—— 整合Hibernate和Spring | TR&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="From : blog.mwxu16.cn注意：点击即可下载：完整的SSH项目整合Demo 一、导包（在第0步导包环节已经导入）">
+  <meta name="description" content="From : blog.mwxu16.cn注意：点击即可下载：完整的SSH项目整合Demo 整合原理：Spring框架与Hibernate框架的整合就是将Hibernate中的sessionFactory交给Spring来负责维护。由Spring负责session维护和aop事务。">
 <meta name="keywords" content="Struts2,Spring,Hibernate,Framework">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SSH（第四步）—— 单独配置Hibernate框架到web项目">
-<meta property="og:url" content="http://www.mwxu16.cn/2017/09/29/SSH(第四步)_单独配置Hibernate框架到web项目/index.html">
+<meta property="og:title" content="SSH（第五步）—— 整合Hibernate和Spring">
+<meta property="og:url" content="http://www.mwxu16.cn/2017/09/29/SSH(第五步)_整合Hibernate和Spring/index.html">
 <meta property="og:site_name" content="TR&#39;s Blog">
-<meta property="og:description" content="From : blog.mwxu16.cn注意：点击即可下载：完整的SSH项目整合Demo 一、导包（在第0步导包环节已经导入）">
+<meta property="og:description" content="From : blog.mwxu16.cn注意：点击即可下载：完整的SSH项目整合Demo 整合原理：Spring框架与Hibernate框架的整合就是将Hibernate中的sessionFactory交给Spring来负责维护。由Spring负责session维护和aop事务。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506698809/Framework%20integration/4/1.png">
-<meta property="og:updated_time" content="2017-09-29T15:32:47.848Z">
+<meta property="og:image" content="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506699373/Framework%20integration/5/1.png">
+<meta property="og:image" content="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506699373/Framework%20integration/5/2.png">
+<meta property="og:updated_time" content="2017-09-29T15:41:46.286Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SSH（第四步）—— 单独配置Hibernate框架到web项目">
-<meta name="twitter:description" content="From : blog.mwxu16.cn注意：点击即可下载：完整的SSH项目整合Demo 一、导包（在第0步导包环节已经导入）">
-<meta name="twitter:image" content="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506698809/Framework%20integration/4/1.png">
+<meta name="twitter:title" content="SSH（第五步）—— 整合Hibernate和Spring">
+<meta name="twitter:description" content="From : blog.mwxu16.cn注意：点击即可下载：完整的SSH项目整合Demo 整合原理：Spring框架与Hibernate框架的整合就是将Hibernate中的sessionFactory交给Spring来负责维护。由Spring负责session维护和aop事务。">
+<meta name="twitter:image" content="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506699373/Framework%20integration/5/1.png">
   
     <link rel="alternative" href="/atom.xml" title="TR&#39;s Blog" type="application/atom+xml">
   
@@ -161,20 +162,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-SSH(第四步)_单独配置Hibernate框架到web项目" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-SSH(第五步)_整合Hibernate和Spring" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      SSH（第四步）—— 单独配置Hibernate框架到web项目
+      SSH（第五步）—— 整合Hibernate和Spring
     </h1>
   
 
         
-        <a href="/2017/09/29/SSH(第四步)_单独配置Hibernate框架到web项目/" class="archive-article-date">
-  	<time datetime="2017-09-29T15:27:38.319Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-29</time>
+        <a href="/2017/09/29/SSH(第五步)_整合Hibernate和Spring/" class="archive-article-date">
+  	<time datetime="2017-09-29T15:37:59.459Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-29</time>
 </a>
         
       </header>
@@ -182,310 +183,73 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="From-blog-mwxu16-cn"><a href="#From-blog-mwxu16-cn" class="headerlink" title="From : blog.mwxu16.cn"></a><em><a href="http://blog.mwxu16.cn" target="_blank" rel="external">From : blog.mwxu16.cn</a></em></h2><p><strong>注意：</strong><br>点击即可下载：<a href="http://download.csdn.net/download/qq_28592887/9994986" target="_blank" rel="external">完整的SSH项目整合Demo</a></p>
-<h3 id="一、导包（在第0步导包环节已经导入）"><a href="#一、导包（在第0步导包环节已经导入）" class="headerlink" title="一、导包（在第0步导包环节已经导入）"></a>一、导包（在第0步导包环节已经导入）</h3><a id="more"></a>
-<h3 id="二、创建实体类"><a href="#二、创建实体类" class="headerlink" title="二、创建实体类"></a>二、创建实体类</h3><p>这里创建两个实体类：<br>Customer实体  </p>
-<pre><code>package cn.mwxu16.domain;
-public class Customer {
-
-      private Long cust_id;
-
-      private String cust_name;
-      private String cust_source;
-      private String cust_industry;
-      private String cust_level;
-      private String cust_linkman;
-      private String cust_phone;
-      private String cust_mobile;
-      public Long getCust_id() {
-            return cust_id;
-      }
-      public void setCust_id(Long cust_id) {
-            this.cust_id = cust_id;
-      }
-      public String getCust_name() {
-            return cust_name;
-      }
-      public void setCust_name(String cust_name) {
-            this.cust_name = cust_name;
-      }
-      public String getCust_source() {
-            return cust_source;
-      }
-      public void setCust_source(String cust_source) {
-            this.cust_source = cust_source;
-      }
-      public String getCust_industry() {
-            return cust_industry;
-      }
-      public void setCust_industry(String cust_industry) {
-            this.cust_industry = cust_industry;
-      }
-      public String getCust_level() {
-            return cust_level;
-      }
-      public void setCust_level(String cust_level) {
-            this.cust_level = cust_level;
-      }
-      public String getCust_linkman() {
-            return cust_linkman;
-      }
-      public void setCust_linkman(String cust_linkman) {
-            this.cust_linkman = cust_linkman;
-      }
-      public String getCust_phone() {
-            return cust_phone;
-      }
-      public void setCust_phone(String cust_phone) {
-            this.cust_phone = cust_phone;
-      }
-      public String getCust_mobile() {
-            return cust_mobile;
-      }
-      public void setCust_mobile(String cust_mobile) {
-            this.cust_mobile = cust_mobile;
-      }
-      @Override
-      public String toString() {
-            return &quot;Customer [cust_id=&quot; + cust_id + &quot;, cust_name=&quot; + cust_name + &quot;]&quot;;
-      }
-}
-</code></pre><p>LinkMan实体  </p>
-<pre><code>package cn.mwxu16.domain;
-//联系人实体
-public class LinkMan {
-
-      private Long lkm_id;
-      private Character lkm_gender;
-      private String lkm_name;
-      private String lkm_phone;
-      private String lkm_email;
-      private String lkm_qq;
-      private String lkm_mobile;
-      private String lkm_memo;
-      private String lkm_position;
-
-      //表达多对一关系
-      private Customer customer ;
-
-      //----------------------------------------------
-      //不与数据库中的列对应,只为了接收表单参数
-      private Long cust_id;
-
-
-
-      public Long getCust_id() {
-            return cust_id;
-      }
-      public void setCust_id(Long cust_id) {
-            this.cust_id = cust_id;
-      }
-      public Customer getCustomer() {
-            return customer;
-      }
-      public void setCustomer(Customer customer) {
-            this.customer = customer;
-      }
-      public Long getLkm_id() {
-            return lkm_id;
-      }
-      public void setLkm_id(Long lkm_id) {
-            this.lkm_id = lkm_id;
-      }
-      public Character getLkm_gender() {
-            return lkm_gender;
-      }
-      public void setLkm_gender(Character lkm_gender) {
-            this.lkm_gender = lkm_gender;
-      }
-      public String getLkm_name() {
-            return lkm_name;
-      }
-      public void setLkm_name(String lkm_name) {
-            this.lkm_name = lkm_name;
-      }
-      public String getLkm_phone() {
-            return lkm_phone;
-      }
-      public void setLkm_phone(String lkm_phone) {
-            this.lkm_phone = lkm_phone;
-      }
-      public String getLkm_email() {
-            return lkm_email;
-      }
-      public void setLkm_email(String lkm_email) {
-            this.lkm_email = lkm_email;
-      }
-      public String getLkm_qq() {
-            return lkm_qq;
-      }
-      public void setLkm_qq(String lkm_qq) {
-            this.lkm_qq = lkm_qq;
-      }
-      public String getLkm_mobile() {
-            return lkm_mobile;
-      }
-      public void setLkm_mobile(String lkm_mobile) {
-            this.lkm_mobile = lkm_mobile;
-      }
-      public String getLkm_memo() {
-            return lkm_memo;
-      }
-      public void setLkm_memo(String lkm_memo) {
-            this.lkm_memo = lkm_memo;
-      }
-      public String getLkm_position() {
-            return lkm_position;
-      }
-      public void setLkm_position(String lkm_position) {
-            this.lkm_position = lkm_position;
-      } 
-}
-</code></pre><h3 id="三、创建ORM元数据映射关系配置文件"><a href="#三、创建ORM元数据映射关系配置文件" class="headerlink" title="三、创建ORM元数据映射关系配置文件"></a>三、创建ORM元数据映射关系配置文件</h3><p>Customer  </p>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;!DOCTYPE hibernate-mapping PUBLIC
-    &quot;-//Hibernate/Hibernate Mapping DTD 3.0//EN&quot;
-    &quot;http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd&quot;;&gt;
-   &lt;!-- 配置表与实体对象的关系 --&gt;
-   &lt;!-- package属性:填写一个包名.在元素内部凡是需要书写完整类名的属性,可以直接写简答类名了. --&gt;
-&lt;hibernate-mapping package=&quot;cn.mwxu16.domain&quot; &gt;
-      &lt;!--
-            class元素: 配置实体与表的对应关系的
-                  name: 完整类名
-                  table:数据库表名
-       --&gt;
-      &lt;class name=&quot;Customer&quot; table=&quot;cst_customer&quot; &gt;
-            &lt;!-- id元素:配置主键映射的属性
-                        name: 填写主键对应属性名
-                        column(可选): 填写表中的主键列名.默认值:列名会默认使用属性名
-                        type(可选):填写列(属性)的类型.hibernate会自动检测实体的属性类型.
-                                    每个类型有三种填法: java类型|hibernate类型|数据库类型
-                        not-null(可选):配置该属性(列)是否不能为空. 默认值:false
-                        length(可选):配置数据库中列的长度. 默认值:使用数据库类型的最大长度
-             --&gt;
-            &lt;id name=&quot;cust_id&quot;  &gt;
-                  &lt;!-- generator:主键生成策略(明天讲) --&gt;
-                  &lt;generator class=&quot;native&quot;&gt;&lt;/generator&gt;
-            &lt;/id&gt;
-            &lt;!-- property元素:除id之外的普通属性映射
-                        name: 填写属性名
-                        column(可选): 填写列名
-                        type(可选):填写列(属性)的类型.hibernate会自动检测实体的属性类型.
-                                    每个类型有三种填法: java类型|hibernate类型|数据库类型
-                        not-null(可选):配置该属性(列)是否不能为空. 默认值:false
-                        length(可选):配置数据库中列的长度. 默认值:使用数据库类型的最大长度
-             --&gt;
-            &lt;property name=&quot;cust_name&quot; column=&quot;cust_name&quot; &gt;
-                  &lt;!--  &lt;column name=&quot;cust_name&quot; sql-type=&quot;varchar&quot; &gt;&lt;/column&gt; --&gt;
+<p>整合原理：<br>Spring框架与Hibernate框架的整合<br>就是将Hibernate中的sessionFactory交给Spring来负责维护。<br>由Spring负责session维护和aop事务。<br><a id="more"></a></p>
+<h3 id="一、将SessionFactory配置到Spring容器中"><a href="#一、将SessionFactory配置到Spring容器中" class="headerlink" title="一、将SessionFactory配置到Spring容器中"></a>一、将SessionFactory配置到Spring容器中</h3><p>由于SessionFactory的创建需要配置信息，因此必须提供配置信息才行。<br>这里有两种方案来提供配置信息。</p>
+<p>方案一：仍然使用外部的hibernate.cfg.xml文件中的配置信息  </p>
+<pre><code>&lt;!-- 将SessionFactory配置到Spring容器中 --&gt;
+&lt;!-- 注意：class属性的值，必须与当前使用的hibernate的版本对应，这里使用的是hibernate5
+      可以Ctrl+Shift+T,搜索LocalSessionFactoryBean,然后选择对应的版本，再复制完整类名
+ --&gt;
+&lt;bean name=&quot;sessionFactory&quot; class=&quot;org.springframework.orm.hibernate5.LocalSessionFactoryBean&quot; &gt;
+&lt;!-- 方案一     仍然使用外部的hibernate.cfg.xml中的配置信息  --&gt;
+            &lt;!-- name属性必须是configLocation，value属性是classpath:hibernate.cfg.xml（即类路径下面的Hibernate配置文件） --&gt;
+      &lt;property name=&quot;configLocation&quot; value=&quot;classpath:hibernate.cfg.xml&quot;&gt;&lt;/property&gt;
+&lt;/bean&gt;
+</code></pre><p><img src="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506699373/Framework%20integration/5/1.png" alt=""></p>
+<p>方案二：在applicationContext.xml中配置数据库相关的信息。  </p>
+<pre><code>&lt;bean name=&quot;sessionFactory&quot;
+            class=&quot;org.springframework.orm.hibernate5.LocalSessionFactoryBean&quot;&gt;
+            &lt;!-- 方案二 使用Properties配置相关信息 --&gt;
+            &lt;!--配置hibernate基本信息 --&gt;
+            &lt;property name=&quot;hibernateProperties&quot;&gt;
+                  &lt;props&gt;
+                        &lt;!-- 四个必选配置 --&gt;
+                        &lt;prop key=&quot;hibernate.connection.driver_class&quot;&gt;com.mysql.jdbc.Driver&lt;/prop&gt;
+                        &lt;prop key=&quot;hibernate.connection.url&quot;&gt;jdbc:mysql:///crm_32?characterEncoding=utf-8&lt;/prop&gt;
+                        &lt;prop key=&quot;hibernate.connection.username&quot;&gt;root&lt;/prop&gt;
+                        &lt;prop key=&quot;hibernate.connection.password&quot;&gt;root&lt;/prop&gt;
+                        &lt;!-- 四个可选配置 --&gt;
+                        &lt;prop key=&quot;hibernate.dialect&quot;&gt;org.hibernate.dialect.MySQLDialect&lt;/prop&gt;
+                        &lt;prop key=&quot;hibernate.show_sql&quot;&gt;true&lt;/prop&gt;
+                        &lt;prop key=&quot;hibernate.format_sql&quot;&gt;true&lt;/prop&gt;
+                        &lt;prop key=&quot;hibernate.hbm2ddl.auto&quot;&gt;update&lt;/prop&gt;
+                  &lt;/props&gt;
             &lt;/property&gt;
-            &lt;property name=&quot;cust_source&quot; column=&quot;cust_source&quot; &gt;&lt;/property&gt;
-            &lt;property name=&quot;cust_industry&quot; column=&quot;cust_industry&quot; &gt;&lt;/property&gt;
-            &lt;property name=&quot;cust_level&quot; column=&quot;cust_level&quot; &gt;&lt;/property&gt;
-            &lt;property name=&quot;cust_linkman&quot; column=&quot;cust_linkman&quot; &gt;&lt;/property&gt;
-            &lt;property name=&quot;cust_phone&quot; column=&quot;cust_phone&quot; &gt;&lt;/property&gt;
-            &lt;property name=&quot;cust_mobile&quot; column=&quot;cust_mobile&quot; &gt;&lt;/property&gt;
-      &lt;/class&gt;
-&lt;/hibernate-mapping&gt;
-</code></pre><p>LinkMan  </p>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;!DOCTYPE hibernate-mapping PUBLIC
-    &quot;-//Hibernate/Hibernate Mapping DTD 3.0//EN&quot;
-    &quot;http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd&quot;;&gt;
-&lt;hibernate-mapping package=&quot;cn.mwxu16.domain&quot; &gt;
-      &lt;class name=&quot;LinkMan&quot; table=&quot;cst_linkman&quot; &gt;
-            &lt;id name=&quot;lkm_id&quot;  &gt;
-                  &lt;generator class=&quot;native&quot;&gt;&lt;/generator&gt;
-            &lt;/id&gt;
-            &lt;property name=&quot;lkm_gender&quot;  &gt;&lt;/property&gt;
-            &lt;property name=&quot;lkm_name&quot;  &gt;&lt;/property&gt;
-            &lt;property name=&quot;lkm_phone&quot;  &gt;&lt;/property&gt;
-            &lt;property name=&quot;lkm_email&quot;  &gt;&lt;/property&gt;
-            &lt;property name=&quot;lkm_qq&quot;  &gt;&lt;/property&gt;
-            &lt;property name=&quot;lkm_mobile&quot;  &gt;&lt;/property&gt;
-            &lt;property name=&quot;lkm_memo&quot;  &gt;&lt;/property&gt;
-            &lt;property name=&quot;lkm_position&quot;  &gt;&lt;/property&gt;
-
-            &lt;!-- 多对一 --&gt;
-            &lt;!--
-                  name属性:引用属性名
-                  column属性: 外键列名
-                  class属性: 与我关联的对象完整类名
-             --&gt;
-              &lt;!--
-                  级联操作:     cascade
-                        save-update: 级联保存更新
-                        delete:级联删除
-                        all:save-update+delete
-                  级联操作: 简化操作.目的就是为了少些两行代码.
-              --&gt;
-              &lt;!-- 多的一方: 不能放弃维护关系的.外键字段就在多的一方.  --&gt;
-            &lt;many-to-one name=&quot;customer&quot; column=&quot;lkm_cust_id&quot; class=&quot;Customer&quot;  &gt;
-            &lt;/many-to-one&gt;
-      &lt;/class&gt;
-&lt;/hibernate-mapping&gt;
-</code></pre><h3 id="四、创建主配置文件"><a href="#四、创建主配置文件" class="headerlink" title="四、创建主配置文件"></a>四、创建主配置文件</h3><p>在src路径下创建hibernate.cfg.xml配置文件，并在主配置文件中引入上面的ORM元数据配置文件。<br>特别注意：<br>1、在hibernate的主配置文件中，不需要配置隔离级别，因为Spring中会配置。<br>2、在hibernate的主配置文件中，一定不能配置指定session与当前线程绑定，否则会跟Spring中的配置冲突。<br>下图所示的两个配置都不能要，必须删除<br><img src="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506698809/Framework%20integration/4/1.png" alt=""></p>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;!DOCTYPE hibernate-configuration PUBLIC
-      &quot;-//Hibernate/Hibernate Configuration DTD 3.0//EN&quot;
-      &quot;http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd&quot;;&gt;
-&lt;hibernate-configuration&gt;
-      &lt;session-factory&gt;
-
-             &lt;!-- 数据库驱动 --&gt;
-            &lt;property name=&quot;hibernate.connection.driver_class&quot;&gt;com.mysql.jdbc.Driver&lt;/property&gt;
-             &lt;!-- 数据库url --&gt;
-&lt;property name=&quot;hibernate.connection.url&quot;&gt;jdbc:mysql:///crm_32?characterEncoding=utf-8&lt;/property&gt;
-             &lt;!-- 数据库连接用户名 --&gt;
-            &lt;property name=&quot;hibernate.connection.username&quot;&gt;root&lt;/property&gt;
-             &lt;!-- 数据库连接密码 --&gt;
-            &lt;property name=&quot;hibernate.connection.password&quot;&gt;root&lt;/property&gt;
-            &lt;!-- 数据库方言
-                  注意: MYSQL在选择方言时,请选择最短的方言.
-             --&gt;
-            &lt;property name=&quot;hibernate.dialect&quot;&gt;org.hibernate.dialect.MySQLDialect&lt;/property&gt;
-
-
-            &lt;!-- 将hibernate生成的sql语句打印到控制台 --&gt;
-            &lt;property name=&quot;hibernate.show_sql&quot;&gt;true&lt;/property&gt;
-            &lt;!-- 将hibernate生成的sql语句格式化(语法缩进) --&gt;
-            &lt;property name=&quot;hibernate.format_sql&quot;&gt;true&lt;/property&gt;
-            &lt;!--
-            自动导出表结构. 自动建表
-             --&gt;
-            &lt;property name=&quot;hibernate.hbm2ddl.auto&quot;&gt;update&lt;/property&gt;
-
-             &lt;!-- 引入实体配置文件 --&gt;
-            &lt;mapping resource=&quot;cn/mwxu16/domain/Customer.hbm.xml&quot; /&gt;
-            &lt;mapping resource=&quot;cn/mwxu16/domain/LinkMan.hbm.xml&quot; /&gt;
-            &lt;mapping resource=&quot;cn/mwxu16/domain/User.hbm.xml&quot; /&gt;
-
-      &lt;/session-factory&gt;
-&lt;/hibernate-configuration&gt;
-</code></pre><h3 id="五、测试"><a href="#五、测试" class="headerlink" title="五、测试"></a>五、测试</h3><p>创建一个测试类，通过Junit4测试。<br>测试类如下  </p>
+            &lt;!-- 引入ORM元数据 ,指定ORM元数据所在的路径，Spring会自动读取包中的所有配置 --&gt;
+            &lt;property name=&quot;mappingDirectoryLocations&quot; value=&quot;classpath:cn/mwxu16/domain&quot;&gt;&lt;/property&gt;
+      &lt;/bean&gt;
+</code></pre><p><img src="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506699373/Framework%20integration/5/2.png" alt=""></p>
+<h3 id="二、测试"><a href="#二、测试" class="headerlink" title="二、测试"></a>二、测试</h3><p>使用Junit4测试，测试类如下：  </p>
 <pre><code>package cn.mwxu16.test;
+import javax.annotation.Resource;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import cn.mwxu16.domain.User;
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(&quot;classpath:applicationContext.xml&quot;)
 public class TestHibernate {
+      @Resource(name=&quot;sessionFactory&quot;)
+      //通过Spring容器来注入SessionFactory对象
+      private SessionFactory sf;
+
       @Test
       public void fun1() {
 
-
-            //加载配置文件
-            Configuration conf = new Configuration().configure();
-            //创建SessionFactoy
-            SessionFactory sf = conf.buildSessionFactory();
             //创建session对象
             Session session = sf.openSession();
             //开启事务
             Transaction tx = session.beginTransaction();
 
             User u = new User();
-            u.setUser_code(&quot;tom&quot;);
-            u.setUser_name(&quot;汤姆&quot;);
-            u.setUser_password(&quot;12345&quot;);
+            u.setUser_code(&quot;lucy&quot;);
+            u.setUser_name(&quot;露西&quot;);
+            u.setUser_password(&quot;123456&quot;);
 
             session.save(u);
 
@@ -493,11 +257,10 @@ public class TestHibernate {
             tx.commit();
             //关闭资源
             session.close();
-            sf.close();
 
       }
 }
-</code></pre><p>运行测试，若成功的在crm_32数据库中，创建了3个数据表（主配置文件配置的是自动建表），并且在sys_user表中存储了一条记录（上面测试类存储的一个用户）。<br>则说明Hibernate框架配置成功了。</p>
+</code></pre><p>若成功保存user对象，则说明整合成功。</p>
 
       
 
@@ -610,7 +373,7 @@ public class TestHibernate {
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://www.mwxu16.cn/2017/09/29/SSH(第四步)_单独配置Hibernate框架到web项目/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://www.mwxu16.cn/2017/09/29/SSH(第五步)_整合Hibernate和Spring/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -624,18 +387,9 @@ public class TestHibernate {
   
 <nav id="article-nav">
   
-    <a href="/2017/09/29/SSH(第五步)_整合Hibernate和Spring/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          SSH（第五步）—— 整合Hibernate和Spring
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/09/29/SSH(第三步)_整合Struts2和Spring/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">SSH（第三步）—— 整合Struts2和Spring</div>
+    <a href="/2017/09/29/SSH(第四步)_单独配置Hibernate框架到web项目/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SSH（第四步）—— 单独配置Hibernate框架到web项目</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -662,7 +416,7 @@ public class TestHibernate {
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#From-blog-mwxu16-cn"><span class="toc-number">1.</span> <span class="toc-text">From : blog.mwxu16.cn</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、导包（在第0步导包环节已经导入）"><span class="toc-number">1.1.</span> <span class="toc-text">一、导包（在第0步导包环节已经导入）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、创建实体类"><span class="toc-number">1.2.</span> <span class="toc-text">二、创建实体类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、创建ORM元数据映射关系配置文件"><span class="toc-number">1.3.</span> <span class="toc-text">三、创建ORM元数据映射关系配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、创建主配置文件"><span class="toc-number">1.4.</span> <span class="toc-text">四、创建主配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五、测试"><span class="toc-number">1.5.</span> <span class="toc-text">五、测试</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#From-blog-mwxu16-cn"><span class="toc-number">1.</span> <span class="toc-text">From : blog.mwxu16.cn</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、将SessionFactory配置到Spring容器中"><span class="toc-number">1.1.</span> <span class="toc-text">一、将SessionFactory配置到Spring容器中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、测试"><span class="toc-number">1.2.</span> <span class="toc-text">二、测试</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
