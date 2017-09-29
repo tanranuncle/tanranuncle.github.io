@@ -6,20 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.mwxu16.cn">
-  <title>单例 | TR&#39;s Blog</title>
+  <title>SSH（第七步）—— HibernateTemplate模板操作数据库 | TR&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="From : www.LintCode.com描述单例是最为最常见的设计模式之一。对于任何时刻，如果某个类只存在且最多存在一个具体的实例，那么我们称这种设计模式为单例。例如，对于 class Mouse (不是动物的mouse哦)，我们应将其设计为 singleton 模式。你的任务是设计一个 getInstance 方法，对于给定的类，每次调用 getInstance 时，都可得到同一个实例。">
-<meta name="keywords" content="algorithm,LintCode,剑指offer">
+  <meta name="description" content="From : blog.mwxu16.cn注意：点击即可下载：完整的SSH项目整合Demo 一、创建Dao接口及其实现类UserDao接口">
+<meta name="keywords" content="Struts2,Spring,Hibernate,Framework">
 <meta property="og:type" content="article">
-<meta property="og:title" content="单例">
-<meta property="og:url" content="http://www.mwxu16.cn/2017/09/15/2.单例/index.html">
+<meta property="og:title" content="SSH（第七步）—— HibernateTemplate模板操作数据库">
+<meta property="og:url" content="http://www.mwxu16.cn/2017/09/29/SSH(第七步)_HibernateTemplate模板操作数据库/index.html">
 <meta property="og:site_name" content="TR&#39;s Blog">
-<meta property="og:description" content="From : www.LintCode.com描述单例是最为最常见的设计模式之一。对于任何时刻，如果某个类只存在且最多存在一个具体的实例，那么我们称这种设计模式为单例。例如，对于 class Mouse (不是动物的mouse哦)，我们应将其设计为 singleton 模式。你的任务是设计一个 getInstance 方法，对于给定的类，每次调用 getInstance 时，都可得到同一个实例。">
+<meta property="og:description" content="From : blog.mwxu16.cn注意：点击即可下载：完整的SSH项目整合Demo 一、创建Dao接口及其实现类UserDao接口">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-09-15T16:23:15.699Z">
+<meta property="og:image" content="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506700242/Framework%20integration/7/1.png">
+<meta property="og:updated_time" content="2017-09-29T15:53:36.247Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="单例">
-<meta name="twitter:description" content="From : www.LintCode.com描述单例是最为最常见的设计模式之一。对于任何时刻，如果某个类只存在且最多存在一个具体的实例，那么我们称这种设计模式为单例。例如，对于 class Mouse (不是动物的mouse哦)，我们应将其设计为 singleton 模式。你的任务是设计一个 getInstance 方法，对于给定的类，每次调用 getInstance 时，都可得到同一个实例。">
+<meta name="twitter:title" content="SSH（第七步）—— HibernateTemplate模板操作数据库">
+<meta name="twitter:description" content="From : blog.mwxu16.cn注意：点击即可下载：完整的SSH项目整合Demo 一、创建Dao接口及其实现类UserDao接口">
+<meta name="twitter:image" content="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506700242/Framework%20integration/7/1.png">
   
     <link rel="alternative" href="/atom.xml" title="TR&#39;s Blog" type="application/atom+xml">
   
@@ -159,45 +161,138 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-2.单例" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-SSH(第七步)_HibernateTemplate模板操作数据库" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      单例
+      SSH（第七步）—— HibernateTemplate模板操作数据库
     </h1>
   
 
         
-        <a href="/2017/09/15/2.单例/" class="archive-article-date">
-  	<time datetime="2017-09-15T14:03:49.161Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-15</time>
+        <a href="/2017/09/29/SSH(第七步)_HibernateTemplate模板操作数据库/" class="archive-article-date">
+  	<time datetime="2017-09-29T15:49:33.913Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-29</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="From-www-LintCode-com"><a href="#From-www-LintCode-com" class="headerlink" title="From : www.LintCode.com"></a><em>From : www.LintCode.com</em></h2><p><strong>描述</strong><br>单例是最为最常见的设计模式之一。对于任何时刻，如果某个类只存在且最多存在一个具体的实例，那么我们称这种设计模式为单例。例如，对于 class Mouse (不是动物的mouse哦)，我们应将其设计为 singleton 模式。<br>你的任务是设计一个 getInstance 方法，对于给定的类，每次调用 getInstance 时，都可得到同一个实例。<br> <a id="more"></a> </p>
-<p><strong>样例</strong><br>在 Java 中:</p>
-<pre><code>A a = A.getInstance();
-A b = A.getInstance();
-</code></pre><p>a 应等于 b.</p>
-<h2 id="解决方案一"><a href="#解决方案一" class="headerlink" title="解决方案一"></a>解决方案一</h2><p>最简单的方式，在类加载时就创建一个静态私有的实例，之后不再创建。<br>在任何时候都只能返回这个唯一的实例。<br>以此来保证实例的唯一性，这种方法是线程安全的。  </p>
-<h2 id="代码实现（JAVA）"><a href="#代码实现（JAVA）" class="headerlink" title="代码实现（JAVA）"></a>代码实现（JAVA）</h2><pre><code>class Solution {
-    /**
-     * @return: The same instance of this class every time
-     */
-    //在加载本类时就创建一个唯一的实例
-    private static Solution sl = new Solution();
-    //向外部提供唯一的实例
-    public static Solution getInstance() {
-        // write your code here
-        return sl;
-    }
+        <h2 id="From-blog-mwxu16-cn"><a href="#From-blog-mwxu16-cn" class="headerlink" title="From : blog.mwxu16.cn"></a><em><a href="http://blog.mwxu16.cn" target="_blank" rel="external">From : blog.mwxu16.cn</a></em></h2><p><strong>注意：</strong><br>点击即可下载：<a href="http://download.csdn.net/download/qq_28592887/9994986" target="_blank" rel="external">完整的SSH项目整合Demo</a></p>
+<h3 id="一、创建Dao接口及其实现类"><a href="#一、创建Dao接口及其实现类" class="headerlink" title="一、创建Dao接口及其实现类"></a>一、创建Dao接口及其实现类</h3><p>UserDao接口<br><a id="more"></a><br>    package cn.mwxu16.dao;<br>    import cn.mwxu16.domain.User;<br>    /*</p>
+<pre><code> * UserDao接口
+ */
+public interface UserDao {
+      //根据登陆名称查询user对象
+            User getByUserCode(String usercode);
+            //保存用户
+            void save(User u);
 }
-</code></pre>
+</code></pre><p>注：<br>1、可以通过HQL来查询，也可以通过Criteria来查询。<br>2、需要继承HibernateDaoSupport。<br>下面在同一个类中演示两种查询方式（实际操作中只保留一种方式即可）：<br>UserDaoImpl实现类一：<br>通过HQL来查询  </p>
+<pre><code>package cn.mwxu16.dao.Impl;
+import org.hibernate.HibernateException;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.springframework.orm.hibernate5.HibernateCallback;
+import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
+import cn.mwxu16.dao.UserDao;
+import cn.mwxu16.domain.User;
+//HibernateDaoSupport 为dao注入sessionFactory
+public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
+
+
+      @Override
+      public User getByUserCode(final String usercode) {
+            //HQL
+            return getHibernateTemplate().execute(new HibernateCallback&lt;User&gt;() {
+                  @Override
+        public User doInHibernate(Session session) throws HibernateException {
+                              String hql = &quot;from User where user_code = ? &quot;;
+                              Query query = session.createQuery(hql);
+                              query.setParameter(0, usercode);
+                              User user = (User) query.uniqueResult();
+                        return user;
+                  }
+            });
+      }
+      @Override
+      public void save(User u) {
+            getHibernateTemplate().save(u);
+      }
+}
+</code></pre><p>UserDaoImpl实现类二：<br>通过Criteria来查询   </p>
+<pre><code>package cn.mwxu16.dao.Impl;
+import java.util.List;
+import org.hibernate.HibernateException;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Restrictions;
+import org.springframework.orm.hibernate5.HibernateCallback;
+import org.springframework.orm.hibernate5.HibernateTemplate;
+import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
+import cn.mwxu16.dao.UserDao;
+import cn.mwxu16.domain.User;
+//HibernateDaoSupport 为dao注入sessionFactory
+public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
+
+
+      @Override
+      public User getByUserCode(final String usercode) {
+            //Criteria
+            DetachedCriteria dc = DetachedCriteria.forClass(User.class);
+
+            dc.add(Restrictions.eq(&quot;user_code&quot;, usercode));
+
+            List&lt;User&gt; list = (List&lt;User&gt;) getHibernateTemplate().findByCriteria(dc);
+
+            if(list != null &amp;&amp; list.size()&gt;0){
+                  return list.get(0);
+            }else{
+                  return null;
+            }
+      }
+      @Override
+      public void save(User u) {
+            getHibernateTemplate().save(u);
+      }
+}
+</code></pre><h3 id="二、将UserDao配置到Spring容器中，并将SessionFactory注入到UserDao中"><a href="#二、将UserDao配置到Spring容器中，并将SessionFactory注入到UserDao中" class="headerlink" title="二、将UserDao配置到Spring容器中，并将SessionFactory注入到UserDao中"></a>二、将UserDao配置到Spring容器中，并将SessionFactory注入到UserDao中</h3><pre><code>&lt;!-- 配置UserDao --&gt;
+      &lt;bean name=&quot;userDao&quot; class=&quot;cn.mwxu16.dao.Impl.UserDaoImpl&quot; &gt;
+            &lt;!-- 注入sessionFactory --&gt;
+            &lt;property name=&quot;sessionFactory&quot; ref=&quot;sessionFactory&quot; &gt;&lt;/property&gt;
+      &lt;/bean&gt;
+</code></pre><p><img src="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506700242/Framework%20integration/7/1.png" alt="">  </p>
+<h3 id="三、测试"><a href="#三、测试" class="headerlink" title="三、测试"></a>三、测试</h3><p>使用Junit4测试，测试类如下：  </p>
+<pre><code>package cn.mwxu16.test;
+import javax.annotation.Resource;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import cn.mwxu16.domain.User;
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(&quot;classpath:applicationContext.xml&quot;)
+public class TestHibernate {
+
+     //将UserDao对象注入进来
+      @Resource(name=&quot;userDao&quot;)
+      private UserDao ud;
+      @Test
+      public void fun3() {
+            User u = ud.getByUserCode(&quot;tom&quot;);
+            System.out.println(u);
+      }
+}
+</code></pre><p>若成功在控制台输出user对象的信息，则说明操作成功。</p>
+
       
 
       
@@ -241,15 +336,19 @@ A b = A.getInstance();
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">algorithm</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Struts2</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LintCode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">剑指offer</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hibernate</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Framework</a>
         		</li>
       		
 		</ul>
@@ -305,7 +404,7 @@ A b = A.getInstance();
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://www.mwxu16.cn/2017/09/15/2.单例/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://www.mwxu16.cn/2017/09/29/SSH(第七步)_HibernateTemplate模板操作数据库/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -319,18 +418,9 @@ A b = A.getInstance();
   
 <nav id="article-nav">
   
-    <a href="/2017/09/15/2.移动零/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          移动零
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/09/15/2.Remove Element/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Remove Element</div>
+    <a href="/2017/09/29/SSH(第六步)_整合c3p0连接池/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SSH（第六步）—— 整合c3p0连接池</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -357,7 +447,7 @@ A b = A.getInstance();
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#From-www-LintCode-com"><span class="toc-number">1.</span> <span class="toc-text">From : www.LintCode.com</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方案一"><span class="toc-number">2.</span> <span class="toc-text">解决方案一</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码实现（JAVA）"><span class="toc-number">3.</span> <span class="toc-text">代码实现（JAVA）</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#From-blog-mwxu16-cn"><span class="toc-number">1.</span> <span class="toc-text">From : blog.mwxu16.cn</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、创建Dao接口及其实现类"><span class="toc-number">1.1.</span> <span class="toc-text">一、创建Dao接口及其实现类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、将UserDao配置到Spring容器中，并将SessionFactory注入到UserDao中"><span class="toc-number">1.2.</span> <span class="toc-text">二、将UserDao配置到Spring容器中，并将SessionFactory注入到UserDao中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、测试"><span class="toc-number">1.3.</span> <span class="toc-text">三、测试</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
