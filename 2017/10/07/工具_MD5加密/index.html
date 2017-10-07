@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.mwxu16.cn">
-  <title>TR&#39;s Blog</title>
+  <title>MD5加密的使用 | TR&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="һֻ����ɵ�С�۷�">
-<meta property="og:type" content="website">
-<meta property="og:title" content="TR&#39;s Blog">
-<meta property="og:url" content="http://www.mwxu16.cn/page/2/index.html">
+  <meta name="description" content="From : blog.mwxu16.cn注意：这里讲的是MD5加密算法的使用，而不是讲解MD5算法。">
+<meta name="keywords" content="Util,Encryption,MD5">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MD5加密的使用">
+<meta property="og:url" content="http://www.mwxu16.cn/2017/10/07/工具_MD5加密/index.html">
 <meta property="og:site_name" content="TR&#39;s Blog">
-<meta property="og:description" content="һֻ����ɵ�С�۷�">
+<meta property="og:description" content="From : blog.mwxu16.cn注意：这里讲的是MD5加密算法的使用，而不是讲解MD5算法。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-10-07T04:36:42.718Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TR&#39;s Blog">
-<meta name="twitter:description" content="һֻ����ɵ�С�۷�">
+<meta name="twitter:title" content="MD5加密的使用">
+<meta name="twitter:description" content="From : blog.mwxu16.cn注意：这里讲的是MD5加密算法的使用，而不是讲解MD5算法。">
   
     <link rel="alternative" href="/atom.xml" title="TR&#39;s Blog" type="application/atom+xml">
   
@@ -157,34 +159,96 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-桶排序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-工具_MD5加密" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/23/桶排序/">桶排序</a>
+    <h1 class="article-title" itemprop="name">
+      MD5加密的使用
     </h1>
   
 
         
-        <a href="/2017/09/23/桶排序/" class="archive-article-date">
-  	<time datetime="2017-09-23T05:51:16.018Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-23</time>
+        <a href="/2017/10/07/工具_MD5加密/" class="archive-article-date">
+  	<time datetime="2017-10-07T04:30:14.187Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-07</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="From-blog-mwxu16-cn"><a href="#From-blog-mwxu16-cn" class="headerlink" title="From : blog.mwxu16.cn"></a><em><a href="http://blog.mwxu16.cn" target="_blank" rel="external">From : blog.mwxu16.cn</a></em></h2><p><strong>简介</strong><br>从某种程度上讲，桶排序可以说是最快最简单的一种排序算法了，但是缺点也是很明显的，那就是适用范围太小。当待排序的数范围很大时，非常的消耗内存（比如说排序的数的范围是1到1亿，就必须创建1亿个桶（长度为1亿的一维数组，当然这只是假设，并不能创建这么大的数组））。  </p>
-        
-          <a class="article-more-a" href="/2017/09/23/桶排序/#more">more >></a>
-        
+        <h2 id="From-blog-mwxu16-cn"><a href="#From-blog-mwxu16-cn" class="headerlink" title="From : blog.mwxu16.cn"></a><em><a href="http://blog.mwxu16.cn" target="_blank" rel="external">From : blog.mwxu16.cn</a></em></h2><p><strong>注意：</strong><br>这里讲的是MD5加密算法的使用，而不是讲解MD5算法。<br><a id="more"></a> </p>
+<h2 id="MD5Utils工具类："><a href="#MD5Utils工具类：" class="headerlink" title="MD5Utils工具类："></a>MD5Utils工具类：</h2><p>这里调用的是java提供的信息加密工具，选择MD5加密。<br>只需要将待加密的字符串，传递给md5方法，则该方法会返回加密后的定长字符串。  </p>
+<pre><code>package cn.mwxu16.MD5;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import org.junit.Test;
+public class MD5Utils {
+     /**
+      * 使用md5的算法进行加密
+      */
+     public static String md5(String plainText) {
+           byte[] secretBytes = null;
+           try {
+                secretBytes = MessageDigest.getInstance(&quot;md5&quot;).digest(
+                           plainText.getBytes());
+           } catch (NoSuchAlgorithmException e) {
+                throw new RuntimeException(&quot;没有md5这个算法！&quot;);
+           }
+           String md5code = new BigInteger(1, secretBytes).toString(16);// 16进制数字
+           // 如果生成数字未满32位，需要前面补0
+           for (int i = 0; i &lt; 32 - md5code.length(); i++) {
+                md5code = &quot;0&quot; + md5code;
+           }
+           return md5code;
+     }
+     @Test
+     public void test() {
+           System.out.println(md5(&quot;123&quot;));
+     }
+}
+</code></pre><p>执行test方法，即可输出加密后的字符串。<br>如上例中，加密“123”，输出结果为：  </p>
+<pre><code>202cb962ac59075b964b07152d234b70
+</code></pre><h2 id="MD5加密的特点："><a href="#MD5加密的特点：" class="headerlink" title="MD5加密的特点："></a>MD5加密的特点：</h2><p>是一种丢失精度的、不可逆的加密算法，可以将任意长的字符串，以字节为单位，加密成一个定长的字符串。  </p>
+<p><strong>应用场景：</strong><br>1、文件传输校验。<br>只要文件传输前后，文件的内容有任何变化，则传输前后对文件加密得到的字符串都会不同。  </p>
+<p>2、密码加密存储<br>对数据库中用户的密码加密存储，以提高安全性。（防止数据库泄露时密码暴露）</p>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/images/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/images/wechat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -195,11 +259,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">algorithm</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Util</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">sort</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Encryption</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">MD5</a>
         		</li>
       		
 		</ul>
@@ -208,16 +276,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/23/桶排序/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://www.mwxu16.cn/2017/10/07/工具_MD5加密/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/09/29/SSH(第八步)_整合aop事务/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SSH（第八步）—— 整合aop事务</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -232,765 +359,30 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-随笔【google】" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/21/随笔【google】/">谁在抄谁？</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/21/随笔【google】/" class="archive-article-date">
-  	<time datetime="2017-09-20T16:39:43.233Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="From-blog-mwxu16-cn"><a href="#From-blog-mwxu16-cn" class="headerlink" title="From : blog.mwxu16.cn"></a><em><a href="http://blog.mwxu16.cn" target="_blank" rel="external">From : blog.mwxu16.cn</a></em></h2><p><strong>描述</strong><br>很诡异的现象，今天在调试程序的时候，到百度上搜索解决方案，发现<br>
-        
-          <a class="article-more-a" href="/2017/09/21/随笔【google】/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">essay</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">mood</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/21/随笔【google】/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#From-blog-mwxu16-cn"><span class="toc-number">1.</span> <span class="toc-text">From : blog.mwxu16.cn</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MD5Utils工具类："><span class="toc-number">2.</span> <span class="toc-text">MD5Utils工具类：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MD5加密的特点："><span class="toc-number">3.</span> <span class="toc-text">MD5加密的特点：</span></a></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-5.Reverse Words in a String III" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/16/5.Reverse Words in a String III/">Reverse Words in a String III</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/16/5.Reverse Words in a String III/" class="archive-article-date">
-  	<time datetime="2017-09-15T16:14:57.010Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="From-www-LeetCode-com"><a href="#From-www-LeetCode-com" class="headerlink" title="From : www.LeetCode.com"></a><em>From : www.LeetCode.com</em></h2><p><strong>Description</strong><br>Given a string, you need to reverse the order of characters in each word within a sentence while still preserving whitespace and initial word order.<br>
-        
-          <a class="article-more-a" href="/2017/09/16/5.Reverse Words in a String III/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">algorithm</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">easy</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/16/5.Reverse Words in a String III/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-随笔【这是一篇随笔】" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/15/随笔【这是一篇随笔】/">随笔</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/15/随笔【这是一篇随笔】/" class="archive-article-date">
-  	<time datetime="2017-09-15T14:03:49.184Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="From-blog-mwxu16-cn"><a href="#From-blog-mwxu16-cn" class="headerlink" title="From : blog.mwxu16.cn"></a><em>From : blog.mwxu16.cn</em></h2><p><strong>描述</strong><br>这是一篇没有代码的文章<br>
-        
-          <a class="article-more-a" href="/2017/09/15/随笔【这是一篇随笔】/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">essay</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">mood</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/15/随笔【这是一篇随笔】/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-4.二进制中有多少个1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/15/4.二进制中有多少个1/">二进制中有多少个1</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/15/4.二进制中有多少个1/" class="archive-article-date">
-  	<time datetime="2017-09-15T14:03:49.180Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="From-www-LintCode-com"><a href="#From-www-LintCode-com" class="headerlink" title="From : www.LintCode.com"></a><em>From : www.LintCode.com</em></h2><p><strong>描述</strong><br>计算在一个 32 位的整数的二进制表示中有多少个 1.<br>
-        
-          <a class="article-more-a" href="/2017/09/15/4.二进制中有多少个1/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">algorithm</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LintCode</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">剑指offer</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/15/4.二进制中有多少个1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-4.ReverseString" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/15/4.ReverseString/">Reverse String</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/15/4.ReverseString/" class="archive-article-date">
-  	<time datetime="2017-09-15T14:03:49.177Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="From-www-LeetCode-com"><a href="#From-www-LeetCode-com" class="headerlink" title="From : www.LeetCode.com"></a><em>From : www.LeetCode.com</em></h2><p><strong>Description</strong><br>Write a function that takes a string as input and returns the string reversed.<br>
-        
-          <a class="article-more-a" href="/2017/09/15/4.ReverseString/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">algorithm</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">easy</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/15/4.ReverseString/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-3.空格替换" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/15/3.空格替换/">空格替换</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/15/3.空格替换/" class="archive-article-date">
-  	<time datetime="2017-09-15T14:03:49.173Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="From-www-LintCode-com"><a href="#From-www-LintCode-com" class="headerlink" title="From : www.LintCode.com"></a><em>From : www.LintCode.com</em></h2><p><strong>描述</strong><br>设计一种方法，将一个字符串中的所有空格替换成 <strong>%20</strong> 。你可以假设该字符串有足够的空间来加入新的字符，且你得到的是“真实的”字符长度。<br>你的程序还需要返回被替换后的字符串的长度。<br>
-        
-          <a class="article-more-a" href="/2017/09/15/3.空格替换/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">algorithm</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LintCode</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">剑指offer</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/15/3.空格替换/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-3.回文数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/15/3.回文数/">回文数</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/15/3.回文数/" class="archive-article-date">
-  	<time datetime="2017-09-15T14:03:49.170Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="From-www-LintCode-com"><a href="#From-www-LintCode-com" class="headerlink" title="From : www.LintCode.com"></a><em>From : www.LintCode.com</em></h2><p><strong>描述</strong><br>判断一个正整数是不是回文数。<br>回文数的定义是，将这个数反转之后，得到的数仍然是同一个数。<br>
-        
-          <a class="article-more-a" href="/2017/09/15/3.回文数/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">algorithm</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LintCode</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">easy</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/15/3.回文数/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-3.ReverseInteger" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/15/3.ReverseInteger/">Reverse Integer</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/15/3.ReverseInteger/" class="archive-article-date">
-  	<time datetime="2017-09-15T14:03:49.167Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="From-www-LeetCode-com"><a href="#From-www-LeetCode-com" class="headerlink" title="From : www.LeetCode.com"></a><em>From : www.LeetCode.com</em></h2><p><strong>Description</strong><br>Reverse digits of an integer.<br>
-        
-          <a class="article-more-a" href="/2017/09/15/3.ReverseInteger/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">algorithm</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">easy</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/15/3.ReverseInteger/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2.移动零" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/15/2.移动零/">移动零</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/15/2.移动零/" class="archive-article-date">
-  	<time datetime="2017-09-15T14:03:49.164Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="From-www-LintCode-com"><a href="#From-www-LintCode-com" class="headerlink" title="From : www.LintCode.com"></a><em>From : www.LintCode.com</em></h2><p><strong>描述</strong><br>给一个数组 nums 写一个函数将 0 移动到数组的最后面，非零元素保持原数组的顺序。<br>
-        
-          <a class="article-more-a" href="/2017/09/15/2.移动零/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">algorithm</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LintCode</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">easy</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/15/2.移动零/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
@@ -1021,8 +413,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
