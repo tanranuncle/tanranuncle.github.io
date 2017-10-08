@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.mwxu16.cn">
-  <title>Reverse Words in a String III | TR&#39;s Blog</title>
+  <title>代理ip的获取和使用 | TR&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="From : www.LeetCode.comDescriptionGiven a string, you need to reverse the order of characters in each word within a sentence while still preserving whitespace and initial word order.">
-<meta name="keywords" content="algorithm,LeetCode,easy">
+  <meta name="description" content="From : blog.mwxu16.cn本文只简单介绍一下代理ip的获取和使用，并没有介绍java爬虫。有空再单独开一个系列说爬虫吧。">
+<meta name="keywords" content="Spider,HttpClient,ProxyIP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Reverse Words in a String III">
-<meta property="og:url" content="http://www.mwxu16.cn/2017/09/16/5.Reverse Words in a String III/index.html">
+<meta property="og:title" content="代理ip的获取和使用">
+<meta property="og:url" content="http://www.mwxu16.cn/2017/10/08/Spider_代理ip/index.html">
 <meta property="og:site_name" content="TR&#39;s Blog">
-<meta property="og:description" content="From : www.LeetCode.comDescriptionGiven a string, you need to reverse the order of characters in each word within a sentence while still preserving whitespace and initial word order.">
+<meta property="og:description" content="From : blog.mwxu16.cn本文只简单介绍一下代理ip的获取和使用，并没有介绍java爬虫。有空再单独开一个系列说爬虫吧。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-09-15T16:16:16.574Z">
+<meta property="og:updated_time" content="2017-10-08T02:12:03.502Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Reverse Words in a String III">
-<meta name="twitter:description" content="From : www.LeetCode.comDescriptionGiven a string, you need to reverse the order of characters in each word within a sentence while still preserving whitespace and initial word order.">
+<meta name="twitter:title" content="代理ip的获取和使用">
+<meta name="twitter:description" content="From : blog.mwxu16.cn本文只简单介绍一下代理ip的获取和使用，并没有介绍java爬虫。有空再单独开一个系列说爬虫吧。">
   
     <link rel="alternative" href="/atom.xml" title="TR&#39;s Blog" type="application/atom+xml">
   
@@ -159,51 +159,92 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-5.Reverse Words in a String III" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Spider_代理ip" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Reverse Words in a String III
+      代理ip的获取和使用
     </h1>
   
 
         
-        <a href="/2017/09/16/5.Reverse Words in a String III/" class="archive-article-date">
-  	<time datetime="2017-09-15T16:14:57.010Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-16</time>
+        <a href="/2017/10/08/Spider_代理ip/" class="archive-article-date">
+  	<time datetime="2017-10-08T01:49:32.643Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-08</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="From-www-LeetCode-com"><a href="#From-www-LeetCode-com" class="headerlink" title="From : www.LeetCode.com"></a><em>From : www.LeetCode.com</em></h2><p><strong>Description</strong><br>Given a string, you need to reverse the order of characters in each word within a sentence while still preserving whitespace and initial word order.<br> <a id="more"></a><br><strong>Example:</strong><br>Input: <code>&quot;Let&#39;s take LeetCode contest&quot;</code><br>Output: <code>&quot;s&#39;teL ekat edoCteeL tsetnoc&quot;</code>  </p>
-<p><strong>Note:</strong><br>In the string, each word is separated by single space and there will not be any extra space in the string.</p>
-<h2 id="中文介绍"><a href="#中文介绍" class="headerlink" title="中文介绍"></a>中文介绍</h2><p><strong>描述</strong><br>给定一个字符串，将该字符串中的每一个单词都反转，但是保留原来的空格和单词顺序。  </p>
-<p><strong>例子</strong><br>输入：<code>&quot;Let&#39;s take LeetCode contest&quot;</code><br>输出：<code>&quot;s&#39;teL ekat edoCteeL tsetnoc&quot;</code>  </p>
-<p><strong>注意：</strong><br>每两个单词之间，有且只能有一个空格，而且整个字符串的两段是没有空格的，</p>
-<h2 id="解决方案一"><a href="#解决方案一" class="headerlink" title="解决方案一"></a>解决方案一</h2><p>本方案的思想：<br>首先，需要将整个字符串通过空格分割成若干个单词（存放在字符串数组中），注意，原字符串中，两个单词之间，不一定只有一个空格。因此需要用到正则表达式来分割“<code>\s+</code>”代表一个或多个空格。<br>然后，直接使用API来反转字符串数组中的每个单词，并拼接起来。<br>拼接的时候要注意，整个字符串的两端时没有空格的。</p>
-<h2 id="代码实现（JAVA）"><a href="#代码实现（JAVA）" class="headerlink" title="代码实现（JAVA）"></a>代码实现（JAVA）</h2><pre><code>class Solution {
-    public String reverseWords(String s) {
-        // 通过一个或多个空格分割字符串
-        String[] str = s.split(&quot;\\s+&quot;);
-        s = &quot;&quot;;
-        // 分别将每一段字符串反转，并接到s上
-        for (int i = 0; i &lt; str.length; i++) {
-            if (i &lt; str.length - 1) {
-                s += new StringBuilder(str[i]).reverse().toString() + &quot; &quot;;
-            }else{
-                s += new StringBuilder(str[i]).reverse().toString();
-            }
-
-        }
-        return s;
-    }
+        <h2 id="From-blog-mwxu16-cn"><a href="#From-blog-mwxu16-cn" class="headerlink" title="From : blog.mwxu16.cn"></a><em><a href="http://blog.mwxu16.cn" target="_blank" rel="external">From : blog.mwxu16.cn</a></em></h2><p>本文只简单介绍一下代理ip的获取和使用，并没有介绍java爬虫。<br>有空再单独开一个系列说爬虫吧。<br><a id="more"></a> </p>
+<h2 id="一、代理ip简介"><a href="#一、代理ip简介" class="headerlink" title="一、代理ip简介"></a>一、代理ip简介</h2><p>为了防止IP被网站封掉而不能继续爬取页面，爬虫程序需要不断的更换IP地址等信息，来伪装成一个真实用户。  </p>
+<h3 id="代理IP的分类："><a href="#代理IP的分类：" class="headerlink" title="代理IP的分类："></a>代理IP的分类：</h3><p>注：关于代理ip的分类信息来源于互联网。<br>关于代理IP的话 也分几种 透明代理、匿名代理、混淆代理、高匿代理  </p>
+<p>1、透明代理(Transparent Proxy)<br>REMOTE_ADDR = Proxy IP<br>HTTP_VIA = Proxy IP<br>HTTP_X_FORWARDED_FOR = Your IP<br>透明代理虽然可以直接“隐藏”你的IP地址，但是还是可以从HTTP_X_FORWARDED_FOR来查到你是谁。  </p>
+<p>2、匿名代理(Anonymous Proxy)<br>REMOTE_ADDR = proxy IP<br>HTTP_VIA = proxy IP<br>HTTP_X_FORWARDED_FOR = proxy IP<br>匿名代理比透明代理进步了一点：别人只能知道你用了代理，无法知道你是谁。  </p>
+<p>3、混淆代理(Distorting Proxies)<br>REMOTE_ADDR = Proxy IP<br>HTTP_VIA = Proxy IP<br>HTTP_X_FORWARDED_FOR = Random IP address<br>如上，与匿名代理相同，如果使用了混淆代理，别人还是能知道你在用代理，但是会得到一个假的IP地址，伪装的更逼真。   </p>
+<p>4、高匿代理(Elite proxy或High Anonymity Proxy)<br>REMOTE_ADDR = Proxy IP<br>HTTP_VIA = not determined<br>HTTP_X_FORWARDED_FOR = not determined<br>可以看出来，高匿代理让别人根本无法发现你是在用代理，所以是最好的选择。  </p>
+<h2 id="二、获取代理ip"><a href="#二、获取代理ip" class="headerlink" title="二、获取代理ip"></a>二、获取代理ip</h2><p>可以写一个小爬虫来爬取这些免费ip代理网站上的代理IP和端口号。<br>注意：可用率真的很低，需要再次筛选后才能使用。  </p>
+<h3 id="分享几个免费IP代理网站："><a href="#分享几个免费IP代理网站：" class="headerlink" title="分享几个免费IP代理网站："></a>分享几个免费IP代理网站：</h3><p>1、西刺代理  </p>
+<pre><code>http://www.xicidaili.com/  
+</code></pre><p>2、66免费代理网   </p>
+<pre><code>http://www.66ip.cn/  
+</code></pre><p>3、快代理  </p>
+<pre><code>http://www.kuaidaili.com/free/  
+</code></pre><p>4、站大爷（不好用，端口号是图片，不易爬取。不过据说IP的质量还不错）  </p>
+<pre><code>http://ip.zdaye.com/  
+</code></pre><p>免费代理ip网站有很多，包括国内的和国外的，但是因为免费，所以可用率低到不行，因此获取之后再筛选是免不了的。<br>ip代理可以从各种网站上抓取，放到数据库中。<br>当一个ip地址被封时（检测response中的状态码），从数据库中取出一条新的ip使用。<br>同时数据库中的ip代理要定时检测是否可用，不可用的ip代理要及时删除。  </p>
+<h3 id="判断ip代理是否可用："><a href="#判断ip代理是否可用：" class="headerlink" title="判断ip代理是否可用："></a>判断ip代理是否可用：</h3><p>使用该ip代理来访问一个网址，比如百度的首页，如果response中的状态码为200.说明可以正常访问，则该ip代理是可用的，否则是不可用的。  </p>
+<h2 id="三、在java爬虫中使用代理ip"><a href="#三、在java爬虫中使用代理ip" class="headerlink" title="三、在java爬虫中使用代理ip"></a>三、在java爬虫中使用代理ip</h2><p>使用代理IP的完整实现代码：  </p>
+<pre><code>package cn.mwxu16.DaiLi_IP;
+import java.io.IOException;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpHost;
+import org.apache.http.client.config.RequestConfig;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
+/*
+ * Demo1
+ * 使用代理IP
+ */
+public class Demo1 {
+     public static void main(String[] args) throws Exception{
+           CloseableHttpClient httpClient = HttpClients.createDefault();    // 创建一个HTTPClient对象   
+           HttpGet httpget = new HttpGet(&quot;http://www.baidu.com&quot;;);    // 创建HTTP的get请求实例
+           //==========设置代理IP
+           HttpHost proxy = new HttpHost(&quot;58.243.207.87&quot;,9858 );     //设置代理IP的地址和端口号
+           RequestConfig config =RequestConfig.custom().setProxy(proxy).build();
+           httpget.setConfig(config);
+           //===================
+           // 设置请求头信息，模拟浏览器，这里使用火狐浏览器的User-Agent
+           httpget.setHeader(&quot;User-Agent&quot;,&quot;Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:55.0) Gecko/20100101 Firefox/55.0&quot;);     
+           CloseableHttpResponse response = null;          // 创建CloseableHttpResponse对象
+           response = httpClient.execute(httpget);                              
+           HttpEntity entity = response.getEntity();  // 获取返回实体（即返回的网页源码）
+           System.out.println(EntityUtils.toString(entity, &quot;utf-8&quot;));      //输出网页源码
+           closeAll(response, httpClient);      //释放资源
+     }
+     // 关闭所有资源
+     public static void closeAll(CloseableHttpResponse response, CloseableHttpClient httpClient) {
+           // 关闭资源
+           try {
+                response.close(); // 关闭response
+           } catch (IOException e) { // IO异常
+                e.printStackTrace();
+           }
+           try {
+                httpClient.close(); // 关闭httpClient
+           } catch (IOException e) { // IO异常
+                e.printStackTrace();
+           }
+     }
 }
-</code></pre><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>要注意到原始字符串中两个单词之间可能不止一个空格。<br>还有就是拼接的时候要注意两端不能有空格。</p>
-
+</code></pre>
       
 
       
@@ -247,15 +288,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">algorithm</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spider</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">HttpClient</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">easy</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ProxyIP</a>
         		</li>
       		
 		</ul>
@@ -311,7 +352,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://www.mwxu16.cn/2017/09/16/5.Reverse Words in a String III/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://www.mwxu16.cn/2017/10/08/Spider_代理ip/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -325,18 +366,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/09/21/随笔【google】/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          谁在抄谁？
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/09/15/随笔【这是一篇随笔】/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">随笔</div>
+    <a href="/2017/10/07/工具_MD5加密/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">MD5加密的使用</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -363,7 +395,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#From-www-LeetCode-com"><span class="toc-number">1.</span> <span class="toc-text">From : www.LeetCode.com</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#中文介绍"><span class="toc-number">2.</span> <span class="toc-text">中文介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方案一"><span class="toc-number">3.</span> <span class="toc-text">解决方案一</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码实现（JAVA）"><span class="toc-number">4.</span> <span class="toc-text">代码实现（JAVA）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#From-blog-mwxu16-cn"><span class="toc-number">1.</span> <span class="toc-text">From : blog.mwxu16.cn</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一、代理ip简介"><span class="toc-number">2.</span> <span class="toc-text">一、代理ip简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#代理IP的分类："><span class="toc-number">2.1.</span> <span class="toc-text">代理IP的分类：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、获取代理ip"><span class="toc-number">3.</span> <span class="toc-text">二、获取代理ip</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#分享几个免费IP代理网站："><span class="toc-number">3.1.</span> <span class="toc-text">分享几个免费IP代理网站：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#判断ip代理是否可用："><span class="toc-number">3.2.</span> <span class="toc-text">判断ip代理是否可用：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、在java爬虫中使用代理ip"><span class="toc-number">4.</span> <span class="toc-text">三、在java爬虫中使用代理ip</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -388,7 +420,7 @@
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "http://www.mwxu16.cn/2017/09/16/5.Reverse Words in a String III/",
+  id: "http://www.mwxu16.cn/2017/10/08/Spider_代理ip/",
   owner: 'tanranuncle',
   repo: 'MyBlogComments',
   oauth: {
