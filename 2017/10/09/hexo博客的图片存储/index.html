@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.mwxu16.cn">
-  <title>Archives: 2017/9 | TR&#39;s Blog</title>
+  <title>hexo博客的图片存储 | TR&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="һֻ����ɵ�С�۷�">
-<meta property="og:type" content="website">
-<meta property="og:title" content="TR&#39;s Blog">
-<meta property="og:url" content="http://www.mwxu16.cn/archives/2017/09/index.html">
+  <meta name="description" content="From : blog.mwxu16.cn通常博客中都会引入一些图片或者截图之类的，毕竟纯文字布局看起来不是很美（个人感觉。。。），就像现在这篇文章一样，没图没真相，差评！这些图片可以存储在哪里呢？">
+<meta name="keywords" content="blog,hexo,github,image">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo博客的图片存储">
+<meta property="og:url" content="http://www.mwxu16.cn/2017/10/09/hexo博客的图片存储/index.html">
 <meta property="og:site_name" content="TR&#39;s Blog">
-<meta property="og:description" content="һֻ����ɵ�С�۷�">
+<meta property="og:description" content="From : blog.mwxu16.cn通常博客中都会引入一些图片或者截图之类的，毕竟纯文字布局看起来不是很美（个人感觉。。。），就像现在这篇文章一样，没图没真相，差评！这些图片可以存储在哪里呢？">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-10-10T03:00:10.318Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TR&#39;s Blog">
-<meta name="twitter:description" content="һֻ����ɵ�С�۷�">
+<meta name="twitter:title" content="hexo博客的图片存储">
+<meta name="twitter:description" content="From : blog.mwxu16.cn通常博客中都会引入一些图片或者截图之类的，毕竟纯文字布局看起来不是很美（个人感觉。。。），就像现在这篇文章一样，没图没真相，差评！这些图片可以存储在哪里呢？">
   
     <link rel="alternative" href="/atom.xml" title="TR&#39;s Blog" type="application/atom+xml">
   
@@ -157,517 +159,230 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-hexo博客的图片存储" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      hexo博客的图片存储
+    </h1>
+  
+
+        
+        <a href="/2017/10/09/hexo博客的图片存储/" class="archive-article-date">
+  	<time datetime="2017-10-09T15:35:29.014Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-09</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="From-blog-mwxu16-cn"><a href="#From-blog-mwxu16-cn" class="headerlink" title="From : blog.mwxu16.cn"></a><em><a href="http://blog.mwxu16.cn" target="_blank" rel="external">From : blog.mwxu16.cn</a></em></h2><p>通常博客中都会引入一些图片或者截图之类的，毕竟纯文字布局看起来不是很美（个人感觉。。。），就像现在这篇文章一样，没图没真相，差评！<br>这些图片可以存储在哪里呢？<br><a id="more"></a></p>
+<h3 id="一、hexo博客中所引用的图片存储在什么地方？"><a href="#一、hexo博客中所引用的图片存储在什么地方？" class="headerlink" title="一、hexo博客中所引用的图片存储在什么地方？"></a>一、hexo博客中所引用的图片存储在什么地方？</h3><p>1、第三方图片存储服务商<br>2、GitHub仓库  </p>
+<h3 id="二、使用第三方存储"><a href="#二、使用第三方存储" class="headerlink" title="二、使用第三方存储"></a>二、使用第三方存储</h3><p>常用的第三方免费存储有：  </p>
+<p>1、<a href="https://cloudinary.com" target="_blank" rel="external">Cloudinary</a><br>2、<a href="https://www.qiniu.com" target="_blank" rel="external">千牛云</a>  </p>
+<p>这两个服务商都为个人用户提供了免费的图片存储服务，但是都有一定的限制。<br>比如<a href="https://cloudinary.com" target="_blank" rel="external">Cloudinary</a>会限制图片的数量和每月的访问流量等，如果博客访问量过大的时候就不行了。<br>注：还有一种情况也会导致访问流量超限，就是博客被其他网站抓取，其他网站上的访问量也算。<br>下面是<a href="https://cloudinary.com" target="_blank" rel="external">Cloudinary</a>官网给的限制：  </p>
+<pre><code>Free Plan  
+20,000 Monthly Transformations  
+300,000 Total Images  
+10 GB Managed Storage  
+20 GB Monthly Viewing Bandwidth
+</code></pre><p>第一个条件是<a href="https://cloudinary.com" target="_blank" rel="external">Cloudinary</a>提供的图片转换功能，不影响博客使用。<br>图片的数量上限是300，000个。<br>图片的总大小10G。<br>每月访问的流量20G。</p>
+<p><strong>缺点：</strong><br>因为使用第三方图片存储，会使得文章和图片分离，不利于以后的迁移（最主要的是万一第三方图片存储服务商停止服务或者开始收费就。。。那么多图片要重新修改引用地址。。。工程量太大不敢想）  </p>
+<h3 id="三、使用GitHub仓库存储"><a href="#三、使用GitHub仓库存储" class="headerlink" title="三、使用GitHub仓库存储"></a>三、使用GitHub仓库存储</h3><p>使用GitHub仓库存储有两种方式：<br>一是在博客所在的仓库中存储。<br>不建议这种方式，因为GitHub给仓库的大小限制是一个G，如果时间长了，很容易导致博客仓库大小超限。这时如果要更换仓库就很麻烦了。  </p>
+<p>二是新建一个仓库来存储图片。<br>这个的好处在于，博客仓库只存储博客，一个G的容量通常够用了，毕竟只是些静态页面，没啥大的资源文件。而图片仓库如果存满了之后，可以再开一个仓库存储图片，之前的图片正常使用，不会受影响。达到可扩展的目的。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/images/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/images/wechat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/29/SSH(第八步)_整合aop事务/" class="archive-article-date">
-  	<time datetime="2017-09-29T15:55:26.649Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/29/SSH(第八步)_整合aop事务/">SSH（第八步）—— 整合aop事务</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Struts2</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">blog</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hibernate</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">github</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Framework</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">image</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://www.mwxu16.cn/2017/10/09/hexo博客的图片存储/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/29/SSH(第七步)_HibernateTemplate模板操作数据库/" class="archive-article-date">
-  	<time datetime="2017-09-29T15:49:33.913Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-29</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2017/10/08/Spider_代理ip/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">代理ip的获取和使用</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/29/SSH(第七步)_HibernateTemplate模板操作数据库/">SSH（第七步）—— HibernateTemplate模板操作数据库</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Struts2</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hibernate</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Framework</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#From-blog-mwxu16-cn"><span class="toc-number">1.</span> <span class="toc-text">From : blog.mwxu16.cn</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、hexo博客中所引用的图片存储在什么地方？"><span class="toc-number">1.1.</span> <span class="toc-text">一、hexo博客中所引用的图片存储在什么地方？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、使用第三方存储"><span class="toc-number">1.2.</span> <span class="toc-text">二、使用第三方存储</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、使用GitHub仓库存储"><span class="toc-number">1.3.</span> <span class="toc-text">三、使用GitHub仓库存储</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/29/SSH(第六步)_整合c3p0连接池/" class="archive-article-date">
-  	<time datetime="2017-09-29T15:45:07.337Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-29</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/29/SSH(第六步)_整合c3p0连接池/">SSH（第六步）—— 整合c3p0连接池</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Struts2</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hibernate</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Framework</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/29/SSH(第五步)_整合Hibernate和Spring/" class="archive-article-date">
-  	<time datetime="2017-09-29T15:37:59.459Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/29/SSH(第五步)_整合Hibernate和Spring/">SSH（第五步）—— 整合Hibernate和Spring</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Struts2</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hibernate</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Framework</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/29/SSH(第四步)_单独配置Hibernate框架到web项目/" class="archive-article-date">
-  	<time datetime="2017-09-29T15:27:38.319Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/29/SSH(第四步)_单独配置Hibernate框架到web项目/">SSH（第四步）—— 单独配置Hibernate框架到web项目</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Struts2</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hibernate</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Framework</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/29/SSH(第三步)_整合Struts2和Spring/" class="archive-article-date">
-  	<time datetime="2017-09-29T15:14:19.805Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/29/SSH(第三步)_整合Struts2和Spring/">SSH（第三步）—— 整合Struts2和Spring</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Struts2</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hibernate</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Framework</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/27/SSH(第二步)_单独配置Struts2框架到web项目/" class="archive-article-date">
-  	<time datetime="2017-09-27T14:06:56.929Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/27/SSH(第二步)_单独配置Struts2框架到web项目/">SSH（第二步）—— 单独配置Struts2框架到web项目</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Struts2</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hibernate</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Framework</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/27/SSH(第一步)_单独配置Spring框架到web项目/" class="archive-article-date">
-  	<time datetime="2017-09-27T13:43:07.245Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/27/SSH(第一步)_单独配置Spring框架到web项目/">SSH（第一步）—— 单独配置Spring框架到web项目</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Struts2</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hibernate</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Framework</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/26/SSH_导包/" class="archive-article-date">
-  	<time datetime="2017-09-25T16:02:59.332Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/26/SSH_导包/">SSH（第零步）—— 导包</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Struts2</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hibernate</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Framework</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/23/桶排序/" class="archive-article-date">
-  	<time datetime="2017-09-23T05:51:16.018Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/23/桶排序/">桶排序</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">algorithm</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">sort</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2017/09/page/2/">2</a><a class="page-number" href="/archives/2017/09/page/3/">3</a><a class="extend next" rel="next" href="/archives/2017/09/page/2/">Next &raquo;</a>
-    </nav>
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "http://www.mwxu16.cn/2017/10/09/hexo博客的图片存储/",
+  owner: 'tanranuncle',
+  repo: 'MyBlogComments',
+  oauth: {
+    client_id: '35b9b17ac352a75cd37a',
+    client_secret: 'b13953479e2acdb9190d7193b9aa6d572ccc249c',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
   
 
 
@@ -703,8 +418,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
