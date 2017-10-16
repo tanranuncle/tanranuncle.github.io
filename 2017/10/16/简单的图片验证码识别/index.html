@@ -20,7 +20,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/tanranuncle/MyBlogImages/master/image%20recognition/sanf.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/tanranuncle/MyBlogImages/master/image%20recognition/%E5%B0%8F%E5%B7%A7%E7%8E%B2%E7%8F%91.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/tanranuncle/MyBlogImages/master/image%20recognition/Image.png">
-<meta property="og:updated_time" content="2017-10-16T16:27:24.592Z">
+<meta property="og:updated_time" content="2017-10-16T16:29:51.376Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="简单的图片验证码识别">
 <meta name="twitter:description" content="From : blog.mwxu16.cn验证码是为了区分人和机器的，在某些场景下，可能会需要使用机器来模拟人的一些操作。因此，就必须要教会机器读懂图片验证码。本文讲的是如何使用tess4j识别简单的图片验证码。">
@@ -192,26 +192,19 @@
 <li>模糊一点的<br><img src="https://raw.githubusercontent.com/tanranuncle/MyBlogImages/master/image%20recognition/sanf.png" alt=""></li>
 <li><p>最难的（汉字验证码的识别成功率远远低于字母和数字组成的验证码）<br><img src="https://raw.githubusercontent.com/tanranuncle/MyBlogImages/master/image%20recognition/%E5%B0%8F%E5%B7%A7%E7%8E%B2%E7%8F%91.png" alt=""></p>
 <h3 id="三、所需的jar包"><a href="#三、所需的jar包" class="headerlink" title="三、所需的jar包"></a>三、所需的jar包</h3><p>1、tess4j-2.0.1.jar  </p>
-<p> <dependency></dependency></p>
-<pre><code>&lt;groupId&gt;net.sourceforge.tess4j&lt;/groupId&gt;
-&lt;artifactId&gt;tess4j&lt;/artifactId&gt;
-&lt;version&gt;2.0.1&lt;/version&gt;
-&lt;exclusions&gt;
-    &lt;exclusion&gt;
-        &lt;groupId&gt;com.sun.jna&lt;/groupId&gt;
-        &lt;artifactId&gt;jna&lt;/artifactId&gt;
-    &lt;/exclusion&gt;
-&lt;/exclusions&gt;
-</code></pre><p> <br>2、jna-4.2.1.jar  </p>
-<p> <dependency></dependency></p>
-<pre><code>&lt;groupId&gt;net.java.dev.jna&lt;/groupId&gt;
-&lt;artifactId&gt;jna&lt;/artifactId&gt;
-&lt;version&gt;4.2.1&lt;/version&gt;
-</code></pre><p> <br>网速捉急，就不上传了，你们自己下载吧，毕竟几十兆大小要上传半天呢。。。</p>
-<h3 id="四、所需数据集"><a href="#四、所需数据集" class="headerlink" title="四、所需数据集"></a>四、所需数据集</h3><p><a href="https://github.com/tesseract-ocr/tessdata" target="_blank" rel="external">点击前往下载</a>  </p>
-<h3 id="五、测试图像验证码识别"><a href="#五、测试图像验证码识别" class="headerlink" title="五、测试图像验证码识别"></a>五、测试图像验证码识别</h3><p>这里用来测试的是上例中的第一种，比较清晰，识别成功率较高。<br>1、创建一个Maven项目<br>2、在项目中创建一个文件夹，名为“tessdata”，如下图所示。<br><img src="https://raw.githubusercontent.com/tanranuncle/MyBlogImages/master/image%20recognition/Image.png" alt="">  </p>
+ <dependency><br>         <groupid>net.sourceforge.tess4j</groupid><br>         <artifactid>tess4j</artifactid><br>         <version>2.0.1</version><br>         <exclusions><br>             <exclusion><br>                 <groupid>com.sun.jna</groupid><br>                 <artifactid>jna</artifactid><br>             </exclusion><br>         </exclusions><br> </dependency>  
+
 </li>
 </ul>
+<p>2、jna-4.2.1.jar  </p>
+<pre><code>&lt;dependency&gt;
+        &lt;groupId&gt;net.java.dev.jna&lt;/groupId&gt;
+        &lt;artifactId&gt;jna&lt;/artifactId&gt;
+        &lt;version&gt;4.2.1&lt;/version&gt;
+&lt;/dependency&gt;  
+</code></pre><p>网速捉急，就不上传了，你们自己下载吧，毕竟几十兆大小要上传半天呢。。。</p>
+<h3 id="四、所需数据集"><a href="#四、所需数据集" class="headerlink" title="四、所需数据集"></a>四、所需数据集</h3><p><a href="https://github.com/tesseract-ocr/tessdata" target="_blank" rel="external">点击前往下载</a>  </p>
+<h3 id="五、测试图像验证码识别"><a href="#五、测试图像验证码识别" class="headerlink" title="五、测试图像验证码识别"></a>五、测试图像验证码识别</h3><p>这里用来测试的是上例中的第一种，比较清晰，识别成功率较高。<br>1、创建一个Maven项目<br>2、在项目中创建一个文件夹，名为“tessdata”，如下图所示。<br><img src="https://raw.githubusercontent.com/tanranuncle/MyBlogImages/master/image%20recognition/Image.png" alt="">  </p>
 <p>3、由于这里识别的验证码是数字和字母组合，因此需要<strong>eng.traineddata</strong>数据集。<br>将该数据集放到<strong>tessdata</strong>文件夹内。<br>4、创建测试类如下：  </p>
 <pre><code>package cn.mwxu16.ImgOCR;
 
@@ -551,7 +544,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+                <a href="javascript:void(0)" class="js-tag color4">LintCode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -559,11 +552,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LintCode</a>
+                <a href="javascript:void(0)" class="js-tag color3">剑指offer</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">剑指offer</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
