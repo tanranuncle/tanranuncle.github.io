@@ -6,23 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.mwxu16.cn">
-  <title>SSH（第五步）—— 整合Hibernate和Spring | TR&#39;s Blog</title>
+  <title>Tag: image recognition | TR&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="From : blog.mwxu16.cn注意：点击即可下载：完整的SSH项目整合Demo 整合原理：Spring框架与Hibernate框架的整合就是将Hibernate中的sessionFactory交给Spring来负责维护。由Spring负责session维护和aop事务。">
-<meta name="keywords" content="Struts2,Spring,Hibernate,Framework">
-<meta property="og:type" content="article">
-<meta property="og:title" content="SSH（第五步）—— 整合Hibernate和Spring">
-<meta property="og:url" content="http://www.mwxu16.cn/2017/09/29/SSH(第五步)_整合Hibernate和Spring/index.html">
+  <meta name="description" content="һֻ����ɵ�С�۷�">
+<meta property="og:type" content="website">
+<meta property="og:title" content="TR&#39;s Blog">
+<meta property="og:url" content="http://www.mwxu16.cn/tags/image-recognition/index.html">
 <meta property="og:site_name" content="TR&#39;s Blog">
-<meta property="og:description" content="From : blog.mwxu16.cn注意：点击即可下载：完整的SSH项目整合Demo 整合原理：Spring框架与Hibernate框架的整合就是将Hibernate中的sessionFactory交给Spring来负责维护。由Spring负责session维护和aop事务。">
+<meta property="og:description" content="һֻ����ɵ�С�۷�">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506699373/Framework%20integration/5/1.png">
-<meta property="og:image" content="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506699373/Framework%20integration/5/2.png">
-<meta property="og:updated_time" content="2017-09-29T15:41:46.286Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SSH（第五步）—— 整合Hibernate和Spring">
-<meta name="twitter:description" content="From : blog.mwxu16.cn注意：点击即可下载：完整的SSH项目整合Demo 整合原理：Spring框架与Hibernate框架的整合就是将Hibernate中的sessionFactory交给Spring来负责维护。由Spring负责session维护和aop事务。">
-<meta name="twitter:image" content="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506699373/Framework%20integration/5/1.png">
+<meta name="twitter:title" content="TR&#39;s Blog">
+<meta name="twitter:description" content="һֻ����ɵ�С�۷�">
   
     <link rel="alternative" href="/atom.xml" title="TR&#39;s Blog" type="application/atom+xml">
   
@@ -162,305 +157,76 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-SSH(第五步)_整合Hibernate和Spring" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      SSH（第五步）—— 整合Hibernate和Spring
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/10/16/简单的图片验证码识别/" class="archive-article-date">
+  	<time datetime="2017-10-16T15:22:53.001Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-16</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/10/16/简单的图片验证码识别/">简单的图片验证码识别</a>
     </h1>
   
 
-        
-        <a href="/2017/09/29/SSH(第五步)_整合Hibernate和Spring/" class="archive-article-date">
-  	<time datetime="2017-09-29T15:37:59.459Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="From-blog-mwxu16-cn"><a href="#From-blog-mwxu16-cn" class="headerlink" title="From : blog.mwxu16.cn"></a><em><a href="http://blog.mwxu16.cn" target="_blank" rel="external">From : blog.mwxu16.cn</a></em></h2><p><strong>注意：</strong><br>点击即可下载：<a href="http://download.csdn.net/download/qq_28592887/9994986" target="_blank" rel="external">完整的SSH项目整合Demo</a></p>
-<p>整合原理：<br>Spring框架与Hibernate框架的整合<br>就是将Hibernate中的sessionFactory交给Spring来负责维护。<br>由Spring负责session维护和aop事务。<br><a id="more"></a></p>
-<h3 id="一、将SessionFactory配置到Spring容器中"><a href="#一、将SessionFactory配置到Spring容器中" class="headerlink" title="一、将SessionFactory配置到Spring容器中"></a>一、将SessionFactory配置到Spring容器中</h3><p>由于SessionFactory的创建需要配置信息，因此必须提供配置信息才行。<br>这里有两种方案来提供配置信息。</p>
-<p>方案一：仍然使用外部的hibernate.cfg.xml文件中的配置信息  </p>
-<pre><code>&lt;!-- 将SessionFactory配置到Spring容器中 --&gt;
-&lt;!-- 注意：class属性的值，必须与当前使用的hibernate的版本对应，这里使用的是hibernate5
-      可以Ctrl+Shift+T,搜索LocalSessionFactoryBean,然后选择对应的版本，再复制完整类名
- --&gt;
-&lt;bean name=&quot;sessionFactory&quot; class=&quot;org.springframework.orm.hibernate5.LocalSessionFactoryBean&quot; &gt;
-&lt;!-- 方案一     仍然使用外部的hibernate.cfg.xml中的配置信息  --&gt;
-            &lt;!-- name属性必须是configLocation，value属性是classpath:hibernate.cfg.xml（即类路径下面的Hibernate配置文件） --&gt;
-      &lt;property name=&quot;configLocation&quot; value=&quot;classpath:hibernate.cfg.xml&quot;&gt;&lt;/property&gt;
-&lt;/bean&gt;
-</code></pre><p><img src="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506699373/Framework%20integration/5/1.png" alt=""></p>
-<p>方案二：在applicationContext.xml中配置数据库相关的信息。  </p>
-<pre><code>&lt;bean name=&quot;sessionFactory&quot;
-            class=&quot;org.springframework.orm.hibernate5.LocalSessionFactoryBean&quot;&gt;
-            &lt;!-- 方案二 使用Properties配置相关信息 --&gt;
-            &lt;!--配置hibernate基本信息 --&gt;
-            &lt;property name=&quot;hibernateProperties&quot;&gt;
-                  &lt;props&gt;
-                        &lt;!-- 四个必选配置 --&gt;
-                        &lt;prop key=&quot;hibernate.connection.driver_class&quot;&gt;com.mysql.jdbc.Driver&lt;/prop&gt;
-                        &lt;prop key=&quot;hibernate.connection.url&quot;&gt;jdbc:mysql:///crm_32?characterEncoding=utf-8&lt;/prop&gt;
-                        &lt;prop key=&quot;hibernate.connection.username&quot;&gt;root&lt;/prop&gt;
-                        &lt;prop key=&quot;hibernate.connection.password&quot;&gt;root&lt;/prop&gt;
-                        &lt;!-- 四个可选配置 --&gt;
-                        &lt;prop key=&quot;hibernate.dialect&quot;&gt;org.hibernate.dialect.MySQLDialect&lt;/prop&gt;
-                        &lt;prop key=&quot;hibernate.show_sql&quot;&gt;true&lt;/prop&gt;
-                        &lt;prop key=&quot;hibernate.format_sql&quot;&gt;true&lt;/prop&gt;
-                        &lt;prop key=&quot;hibernate.hbm2ddl.auto&quot;&gt;update&lt;/prop&gt;
-                  &lt;/props&gt;
-            &lt;/property&gt;
-            &lt;!-- 引入ORM元数据 ,指定ORM元数据所在的路径，Spring会自动读取包中的所有配置 --&gt;
-            &lt;property name=&quot;mappingDirectoryLocations&quot; value=&quot;classpath:cn/mwxu16/domain&quot;&gt;&lt;/property&gt;
-      &lt;/bean&gt;
-</code></pre><p><img src="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506699373/Framework%20integration/5/2.png" alt=""></p>
-<h3 id="二、测试"><a href="#二、测试" class="headerlink" title="二、测试"></a>二、测试</h3><p>使用Junit4测试，测试类如下：  </p>
-<pre><code>package cn.mwxu16.test;
-import javax.annotation.Resource;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import cn.mwxu16.domain.User;
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(&quot;classpath:applicationContext.xml&quot;)
-public class TestHibernate {
-      @Resource(name=&quot;sessionFactory&quot;)
-      //通过Spring容器来注入SessionFactory对象
-      private SessionFactory sf;
-
-      @Test
-      public void fun1() {
-
-            //创建session对象
-            Session session = sf.openSession();
-            //开启事务
-            Transaction tx = session.beginTransaction();
-
-            User u = new User();
-            u.setUser_code(&quot;lucy&quot;);
-            u.setUser_name(&quot;露西&quot;);
-            u.setUser_password(&quot;123456&quot;);
-
-            session.save(u);
-
-            //提交事务
-            tx.commit();
-            //关闭资源
-            session.close();
-
-      }
-}
-</code></pre><p>若成功保存user对象，则说明整合成功。</p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/images/alipay.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/images/wechat.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Struts2</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Util</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hibernate</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Verification Code</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Framework</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">image recognition</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">tess4j</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://www.mwxu16.cn/2017/09/29/SSH(第五步)_整合Hibernate和Spring/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/09/29/SSH(第六步)_整合c3p0连接池/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          SSH（第六步）—— 整合c3p0连接池
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/09/29/SSH(第四步)_单独配置Hibernate框架到web项目/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">SSH（第四步）—— 单独配置Hibernate框架到web项目</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#From-blog-mwxu16-cn"><span class="toc-number">1.</span> <span class="toc-text">From : blog.mwxu16.cn</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、将SessionFactory配置到Spring容器中"><span class="toc-number">1.1.</span> <span class="toc-text">一、将SessionFactory配置到Spring容器中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、测试"><span class="toc-number">1.2.</span> <span class="toc-text">二、测试</span></a></li></ol></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
-  <div id="gitment-ctn"></div> 
-<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
-<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
-<script>
-var gitment = new Gitment({
-  id: "http://www.mwxu16.cn/2017/09/29/SSH(第五步)_整合Hibernate和Spring/",
-  owner: 'tanranuncle',
-  repo: 'MyBlogComments',
-  oauth: {
-    client_id: '35b9b17ac352a75cd37a',
-    client_secret: 'b13953479e2acdb9190d7193b9aa6d572ccc249c',
-  },
-})
-gitment.render('gitment-ctn')
-</script>
-  
+    
 
 
           </div>
@@ -495,9 +261,9 @@ gitment.render('gitment-ctn')
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

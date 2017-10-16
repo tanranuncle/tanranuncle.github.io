@@ -6,23 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.mwxu16.cn">
-  <title>SSH（第五步）—— 整合Hibernate和Spring | TR&#39;s Blog</title>
+  <title>简单的图片验证码识别 | TR&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="From : blog.mwxu16.cn注意：点击即可下载：完整的SSH项目整合Demo 整合原理：Spring框架与Hibernate框架的整合就是将Hibernate中的sessionFactory交给Spring来负责维护。由Spring负责session维护和aop事务。">
-<meta name="keywords" content="Struts2,Spring,Hibernate,Framework">
+  <meta name="description" content="From : blog.mwxu16.cn验证码是为了区分人和机器的，在某些场景下，可能会需要使用机器来模拟人的一些操作。因此，就必须要教会机器读懂图片验证码。本文讲的是如何使用tess4j识别简单的图片验证码。">
+<meta name="keywords" content="Util,java,Verification Code,image recognition,tess4j">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SSH（第五步）—— 整合Hibernate和Spring">
-<meta property="og:url" content="http://www.mwxu16.cn/2017/09/29/SSH(第五步)_整合Hibernate和Spring/index.html">
+<meta property="og:title" content="简单的图片验证码识别">
+<meta property="og:url" content="http://www.mwxu16.cn/2017/10/16/简单的图片验证码识别/index.html">
 <meta property="og:site_name" content="TR&#39;s Blog">
-<meta property="og:description" content="From : blog.mwxu16.cn注意：点击即可下载：完整的SSH项目整合Demo 整合原理：Spring框架与Hibernate框架的整合就是将Hibernate中的sessionFactory交给Spring来负责维护。由Spring负责session维护和aop事务。">
+<meta property="og:description" content="From : blog.mwxu16.cn验证码是为了区分人和机器的，在某些场景下，可能会需要使用机器来模拟人的一些操作。因此，就必须要教会机器读懂图片验证码。本文讲的是如何使用tess4j识别简单的图片验证码。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506699373/Framework%20integration/5/1.png">
-<meta property="og:image" content="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506699373/Framework%20integration/5/2.png">
-<meta property="og:updated_time" content="2017-09-29T15:41:46.286Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/tanranuncle/MyBlogImages/master/image%20recognition/3PAS.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/tanranuncle/MyBlogImages/master/image%20recognition/sanf.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/tanranuncle/MyBlogImages/master/image%20recognition/%E5%B0%8F%E5%B7%A7%E7%8E%B2%E7%8F%91.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/tanranuncle/MyBlogImages/master/image%20recognition/Image.png">
+<meta property="og:updated_time" content="2017-10-16T16:17:08.591Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SSH（第五步）—— 整合Hibernate和Spring">
-<meta name="twitter:description" content="From : blog.mwxu16.cn注意：点击即可下载：完整的SSH项目整合Demo 整合原理：Spring框架与Hibernate框架的整合就是将Hibernate中的sessionFactory交给Spring来负责维护。由Spring负责session维护和aop事务。">
-<meta name="twitter:image" content="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506699373/Framework%20integration/5/1.png">
+<meta name="twitter:title" content="简单的图片验证码识别">
+<meta name="twitter:description" content="From : blog.mwxu16.cn验证码是为了区分人和机器的，在某些场景下，可能会需要使用机器来模拟人的一些操作。因此，就必须要教会机器读懂图片验证码。本文讲的是如何使用tess4j识别简单的图片验证码。">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/tanranuncle/MyBlogImages/master/image%20recognition/3PAS.png">
   
     <link rel="alternative" href="/atom.xml" title="TR&#39;s Blog" type="application/atom+xml">
   
@@ -162,105 +164,83 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-SSH(第五步)_整合Hibernate和Spring" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-简单的图片验证码识别" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      SSH（第五步）—— 整合Hibernate和Spring
+      简单的图片验证码识别
     </h1>
   
 
         
-        <a href="/2017/09/29/SSH(第五步)_整合Hibernate和Spring/" class="archive-article-date">
-  	<time datetime="2017-09-29T15:37:59.459Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-29</time>
+        <a href="/2017/10/16/简单的图片验证码识别/" class="archive-article-date">
+  	<time datetime="2017-10-16T15:22:53.001Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-16</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="From-blog-mwxu16-cn"><a href="#From-blog-mwxu16-cn" class="headerlink" title="From : blog.mwxu16.cn"></a><em><a href="http://blog.mwxu16.cn" target="_blank" rel="external">From : blog.mwxu16.cn</a></em></h2><p><strong>注意：</strong><br>点击即可下载：<a href="http://download.csdn.net/download/qq_28592887/9994986" target="_blank" rel="external">完整的SSH项目整合Demo</a></p>
-<p>整合原理：<br>Spring框架与Hibernate框架的整合<br>就是将Hibernate中的sessionFactory交给Spring来负责维护。<br>由Spring负责session维护和aop事务。<br><a id="more"></a></p>
-<h3 id="一、将SessionFactory配置到Spring容器中"><a href="#一、将SessionFactory配置到Spring容器中" class="headerlink" title="一、将SessionFactory配置到Spring容器中"></a>一、将SessionFactory配置到Spring容器中</h3><p>由于SessionFactory的创建需要配置信息，因此必须提供配置信息才行。<br>这里有两种方案来提供配置信息。</p>
-<p>方案一：仍然使用外部的hibernate.cfg.xml文件中的配置信息  </p>
-<pre><code>&lt;!-- 将SessionFactory配置到Spring容器中 --&gt;
-&lt;!-- 注意：class属性的值，必须与当前使用的hibernate的版本对应，这里使用的是hibernate5
-      可以Ctrl+Shift+T,搜索LocalSessionFactoryBean,然后选择对应的版本，再复制完整类名
- --&gt;
-&lt;bean name=&quot;sessionFactory&quot; class=&quot;org.springframework.orm.hibernate5.LocalSessionFactoryBean&quot; &gt;
-&lt;!-- 方案一     仍然使用外部的hibernate.cfg.xml中的配置信息  --&gt;
-            &lt;!-- name属性必须是configLocation，value属性是classpath:hibernate.cfg.xml（即类路径下面的Hibernate配置文件） --&gt;
-      &lt;property name=&quot;configLocation&quot; value=&quot;classpath:hibernate.cfg.xml&quot;&gt;&lt;/property&gt;
-&lt;/bean&gt;
-</code></pre><p><img src="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506699373/Framework%20integration/5/1.png" alt=""></p>
-<p>方案二：在applicationContext.xml中配置数据库相关的信息。  </p>
-<pre><code>&lt;bean name=&quot;sessionFactory&quot;
-            class=&quot;org.springframework.orm.hibernate5.LocalSessionFactoryBean&quot;&gt;
-            &lt;!-- 方案二 使用Properties配置相关信息 --&gt;
-            &lt;!--配置hibernate基本信息 --&gt;
-            &lt;property name=&quot;hibernateProperties&quot;&gt;
-                  &lt;props&gt;
-                        &lt;!-- 四个必选配置 --&gt;
-                        &lt;prop key=&quot;hibernate.connection.driver_class&quot;&gt;com.mysql.jdbc.Driver&lt;/prop&gt;
-                        &lt;prop key=&quot;hibernate.connection.url&quot;&gt;jdbc:mysql:///crm_32?characterEncoding=utf-8&lt;/prop&gt;
-                        &lt;prop key=&quot;hibernate.connection.username&quot;&gt;root&lt;/prop&gt;
-                        &lt;prop key=&quot;hibernate.connection.password&quot;&gt;root&lt;/prop&gt;
-                        &lt;!-- 四个可选配置 --&gt;
-                        &lt;prop key=&quot;hibernate.dialect&quot;&gt;org.hibernate.dialect.MySQLDialect&lt;/prop&gt;
-                        &lt;prop key=&quot;hibernate.show_sql&quot;&gt;true&lt;/prop&gt;
-                        &lt;prop key=&quot;hibernate.format_sql&quot;&gt;true&lt;/prop&gt;
-                        &lt;prop key=&quot;hibernate.hbm2ddl.auto&quot;&gt;update&lt;/prop&gt;
-                  &lt;/props&gt;
-            &lt;/property&gt;
-            &lt;!-- 引入ORM元数据 ,指定ORM元数据所在的路径，Spring会自动读取包中的所有配置 --&gt;
-            &lt;property name=&quot;mappingDirectoryLocations&quot; value=&quot;classpath:cn/mwxu16/domain&quot;&gt;&lt;/property&gt;
-      &lt;/bean&gt;
-</code></pre><p><img src="http://res.cloudinary.com/dyb1o2amn/image/upload/v1506699373/Framework%20integration/5/2.png" alt=""></p>
-<h3 id="二、测试"><a href="#二、测试" class="headerlink" title="二、测试"></a>二、测试</h3><p>使用Junit4测试，测试类如下：  </p>
-<pre><code>package cn.mwxu16.test;
-import javax.annotation.Resource;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
+        <h2 id="From-blog-mwxu16-cn"><a href="#From-blog-mwxu16-cn" class="headerlink" title="From : blog.mwxu16.cn"></a><em><a href="http://blog.mwxu16.cn" target="_blank" rel="external">From : blog.mwxu16.cn</a></em></h2><p>验证码是为了区分人和机器的，在某些场景下，可能会需要使用机器来模拟人的一些操作。<br>因此，就必须要教会机器读懂图片验证码。<br>本文讲的是如何使用tess4j识别简单的图片验证码。<br><a id="more"></a>   </p>
+<h3 id="一、验证码生成"><a href="#一、验证码生成" class="headerlink" title="一、验证码生成"></a>一、验证码生成</h3><p>普通的图片验证码，通常是由字母、数字、汉字等元素组成。<br>通过程序来使得这些元素发生形变、歪曲、变色，同时加上干扰线以及干扰背景等，最终生成了我们看到的图片验证码。  </p>
+<h3 id="二、常见的图片验证码类型"><a href="#二、常见的图片验证码类型" class="headerlink" title="二、常见的图片验证码类型"></a>二、常见的图片验证码类型</h3><p>这里介绍几种常见的图片验证码：  </p>
+<ul>
+<li>比较清晰的一种<br><img src="https://raw.githubusercontent.com/tanranuncle/MyBlogImages/master/image%20recognition/3PAS.png" alt=""></li>
+<li>模糊一点的<br><img src="https://raw.githubusercontent.com/tanranuncle/MyBlogImages/master/image%20recognition/sanf.png" alt=""></li>
+<li><p>最难的（汉字验证码的识别成功率远远低于字母和数字组成的验证码）<br><img src="https://raw.githubusercontent.com/tanranuncle/MyBlogImages/master/image%20recognition/%E5%B0%8F%E5%B7%A7%E7%8E%B2%E7%8F%91.png" alt=""></p>
+<h3 id="三、所需的jar包"><a href="#三、所需的jar包" class="headerlink" title="三、所需的jar包"></a>三、所需的jar包</h3><p>1、tess4j-2.0.1.jar  </p>
+ <dependency><br>         <groupid>net.sourceforge.tess4j</groupid><br>         <artifactid>tess4j</artifactid><br>         <version>2.0.1</version><br>         <exclusions><br>             <exclusion><br>                 <groupid>com.sun.jna</groupid><br>                 <artifactid>jna</artifactid><br>             </exclusion><br>         </exclusions><br> </dependency>
+
+</li>
+</ul>
+<p>2、jna-4.2.1.jar  </p>
+<pre><code>&lt;dependency&gt;
+        &lt;groupId&gt;net.java.dev.jna&lt;/groupId&gt;
+        &lt;artifactId&gt;jna&lt;/artifactId&gt;
+        &lt;version&gt;4.2.1&lt;/version&gt;
+&lt;/dependency&gt;  
+</code></pre><p>网速捉急，就不上传了，你们自己下载吧，毕竟几十兆大小要上传半天呢。。。</p>
+<h3 id="四、所需数据集"><a href="#四、所需数据集" class="headerlink" title="四、所需数据集"></a>四、所需数据集</h3><p><a href="https://github.com/tesseract-ocr/tessdata" target="_blank" rel="external">点击前往下载</a>  </p>
+<h3 id="五、测试图像验证码识别"><a href="#五、测试图像验证码识别" class="headerlink" title="五、测试图像验证码识别"></a>五、测试图像验证码识别</h3><p>这里用来测试的是上例中的第一种，比较清晰，识别成功率较高。<br>1、创建一个Maven项目<br>2、在项目中创建一个文件夹，名为“tessdata”，如下图所示。<br><img src="https://raw.githubusercontent.com/tanranuncle/MyBlogImages/master/image%20recognition/Image.png" alt="">  </p>
+<p>3、由于这里识别的验证码是数字和字母组合，因此需要<strong>eng.traineddata</strong>数据集。<br>将该数据集放到<strong>tessdata</strong>文件夹内。<br>4、创建测试类如下：  </p>
+<pre><code>package cn.mwxu16.ImgOCR;
+
+import java.io.File;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import cn.mwxu16.domain.User;
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(&quot;classpath:applicationContext.xml&quot;)
-public class TestHibernate {
-      @Resource(name=&quot;sessionFactory&quot;)
-      //通过Spring容器来注入SessionFactory对象
-      private SessionFactory sf;
+import net.sourceforge.tess4j.Tesseract;
+import net.sourceforge.tess4j.TesseractException;
 
-      @Test
-      public void fun1() {
+/*
+ * 测试使用tess4j来识别图片验证码
+ */
+public class TestImgOCR {
 
-            //创建session对象
-            Session session = sf.openSession();
-            //开启事务
-            Transaction tx = session.beginTransaction();
-
-            User u = new User();
-            u.setUser_code(&quot;lucy&quot;);
-            u.setUser_name(&quot;露西&quot;);
-            u.setUser_password(&quot;123456&quot;);
-
-            session.save(u);
-
-            //提交事务
-            tx.commit();
-            //关闭资源
-            session.close();
-
-      }
+    @Test
+    public void test() {
+        //创建要识别的验证码File对象（需要从硬盘中读取要识别的验证码图片）
+        File imageFile = new File(&quot;D:/ImageForOCR/1234.png&quot;);
+        //判断验证码图片是否存在，若存在则进行识别
+        if (imageFile.exists()) {
+            //创建识别器实例
+            Tesseract instance = new Tesseract();
+            // 创建识别结果字符串
+            String result;
+            try {
+                // 将验证码图片的内容识别为字符串
+                result = instance.doOCR(imageFile);
+                System.out.println(&quot;验证码是 : &quot; + result);
+            } catch (TesseractException e) {
+                System.out.println(&quot;识别验证码失败！&quot;);
+            }
+        }else{
+            System.out.println(&quot;验证码图片读取失败！&quot;);
+        }
+    }
 }
-</code></pre><p>若成功保存user对象，则说明整合成功。</p>
+</code></pre><p>5、若上述步骤没有出错，运行测试类，应当会输出验证码图片上的内容或相应的异常提醒。  </p>
 
       
 
@@ -305,19 +285,23 @@ public class TestHibernate {
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Struts2</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Util</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hibernate</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Verification Code</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Framework</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">image recognition</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">tess4j</a>
         		</li>
       		
 		</ul>
@@ -373,7 +357,7 @@ public class TestHibernate {
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://www.mwxu16.cn/2017/09/29/SSH(第五步)_整合Hibernate和Spring/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://www.mwxu16.cn/2017/10/16/简单的图片验证码识别/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -387,18 +371,9 @@ public class TestHibernate {
   
 <nav id="article-nav">
   
-    <a href="/2017/09/29/SSH(第六步)_整合c3p0连接池/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          SSH（第六步）—— 整合c3p0连接池
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/09/29/SSH(第四步)_单独配置Hibernate框架到web项目/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">SSH（第四步）—— 单独配置Hibernate框架到web项目</div>
+    <a href="/2017/10/15/java发送邮件/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">在java中发送邮件</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -425,7 +400,7 @@ public class TestHibernate {
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#From-blog-mwxu16-cn"><span class="toc-number">1.</span> <span class="toc-text">From : blog.mwxu16.cn</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、将SessionFactory配置到Spring容器中"><span class="toc-number">1.1.</span> <span class="toc-text">一、将SessionFactory配置到Spring容器中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、测试"><span class="toc-number">1.2.</span> <span class="toc-text">二、测试</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#From-blog-mwxu16-cn"><span class="toc-number">1.</span> <span class="toc-text">From : blog.mwxu16.cn</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、验证码生成"><span class="toc-number">1.1.</span> <span class="toc-text">一、验证码生成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、常见的图片验证码类型"><span class="toc-number">1.2.</span> <span class="toc-text">二、常见的图片验证码类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、所需的jar包"><span class="toc-number">1.3.</span> <span class="toc-text">三、所需的jar包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、所需数据集"><span class="toc-number">1.4.</span> <span class="toc-text">四、所需数据集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五、测试图像验证码识别"><span class="toc-number">1.5.</span> <span class="toc-text">五、测试图像验证码识别</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -450,7 +425,7 @@ public class TestHibernate {
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "http://www.mwxu16.cn/2017/09/29/SSH(第五步)_整合Hibernate和Spring/",
+  id: "http://www.mwxu16.cn/2017/10/16/简单的图片验证码识别/",
   owner: 'tanranuncle',
   repo: 'MyBlogComments',
   oauth: {
