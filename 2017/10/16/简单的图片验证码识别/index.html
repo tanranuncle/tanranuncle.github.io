@@ -20,7 +20,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/tanranuncle/MyBlogImages/master/image%20recognition/sanf.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/tanranuncle/MyBlogImages/master/image%20recognition/%E5%B0%8F%E5%B7%A7%E7%8E%B2%E7%8F%91.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/tanranuncle/MyBlogImages/master/image%20recognition/Image.png">
-<meta property="og:updated_time" content="2017-10-16T16:17:08.591Z">
+<meta property="og:updated_time" content="2017-10-16T16:25:11.696Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="简单的图片验证码识别">
 <meta name="twitter:description" content="From : blog.mwxu16.cn验证码是为了区分人和机器的，在某些场景下，可能会需要使用机器来模拟人的一些操作。因此，就必须要教会机器读懂图片验证码。本文讲的是如何使用tess4j识别简单的图片验证码。">
@@ -192,6 +192,8 @@
 <li>模糊一点的<br><img src="https://raw.githubusercontent.com/tanranuncle/MyBlogImages/master/image%20recognition/sanf.png" alt=""></li>
 <li><p>最难的（汉字验证码的识别成功率远远低于字母和数字组成的验证码）<br><img src="https://raw.githubusercontent.com/tanranuncle/MyBlogImages/master/image%20recognition/%E5%B0%8F%E5%B7%A7%E7%8E%B2%E7%8F%91.png" alt=""></p>
 <h3 id="三、所需的jar包"><a href="#三、所需的jar包" class="headerlink" title="三、所需的jar包"></a>三、所需的jar包</h3><p>1、tess4j-2.0.1.jar  </p>
+ <dependency><br>         <groupid>net.java.dev.jna</groupid><br>         <artifactid>jna</artifactid><br>         <version>4.2.1</version><br> </dependency>  
+
  <dependency><br>         <groupid>net.sourceforge.tess4j</groupid><br>         <artifactid>tess4j</artifactid><br>         <version>2.0.1</version><br>         <exclusions><br>             <exclusion><br>                 <groupid>com.sun.jna</groupid><br>                 <artifactid>jna</artifactid><br>             </exclusion><br>         </exclusions><br> </dependency>
 
 </li>
@@ -608,14 +610,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Encryption</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MD5</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">mail</a>
               </li>
              
@@ -624,7 +618,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">sort</a>
+                <a href="javascript:void(0)" class="js-tag color1">Encryption</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MD5</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -637,6 +635,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">tess4j</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">sort</a>
               </li>
              
               <li class="article-tag-list-item">
