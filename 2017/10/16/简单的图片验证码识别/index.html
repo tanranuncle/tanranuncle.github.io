@@ -20,7 +20,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/tanranuncle/MyBlogImages/master/image%20recognition/sanf.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/tanranuncle/MyBlogImages/master/image%20recognition/%E5%B0%8F%E5%B7%A7%E7%8E%B2%E7%8F%91.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/tanranuncle/MyBlogImages/master/image%20recognition/Image.png">
-<meta property="og:updated_time" content="2017-10-16T16:29:51.376Z">
+<meta property="og:updated_time" content="2017-10-16T16:31:15.184Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="简单的图片验证码识别">
 <meta name="twitter:description" content="From : blog.mwxu16.cn验证码是为了区分人和机器的，在某些场景下，可能会需要使用机器来模拟人的一些操作。因此，就必须要教会机器读懂图片验证码。本文讲的是如何使用tess4j识别简单的图片验证码。">
@@ -190,13 +190,20 @@
 <ul>
 <li>比较清晰的一种<br><img src="https://raw.githubusercontent.com/tanranuncle/MyBlogImages/master/image%20recognition/3PAS.png" alt=""></li>
 <li>模糊一点的<br><img src="https://raw.githubusercontent.com/tanranuncle/MyBlogImages/master/image%20recognition/sanf.png" alt=""></li>
-<li><p>最难的（汉字验证码的识别成功率远远低于字母和数字组成的验证码）<br><img src="https://raw.githubusercontent.com/tanranuncle/MyBlogImages/master/image%20recognition/%E5%B0%8F%E5%B7%A7%E7%8E%B2%E7%8F%91.png" alt=""></p>
-<h3 id="三、所需的jar包"><a href="#三、所需的jar包" class="headerlink" title="三、所需的jar包"></a>三、所需的jar包</h3><p>1、tess4j-2.0.1.jar  </p>
- <dependency><br>         <groupid>net.sourceforge.tess4j</groupid><br>         <artifactid>tess4j</artifactid><br>         <version>2.0.1</version><br>         <exclusions><br>             <exclusion><br>                 <groupid>com.sun.jna</groupid><br>                 <artifactid>jna</artifactid><br>             </exclusion><br>         </exclusions><br> </dependency>  
-
-</li>
+<li>最难的（汉字验证码的识别成功率远远低于字母和数字组成的验证码）<br><img src="https://raw.githubusercontent.com/tanranuncle/MyBlogImages/master/image%20recognition/%E5%B0%8F%E5%B7%A7%E7%8E%B2%E7%8F%91.png" alt=""><h3 id="三、所需的jar包"><a href="#三、所需的jar包" class="headerlink" title="三、所需的jar包"></a>三、所需的jar包</h3>1、tess4j-2.0.1.jar  </li>
 </ul>
-<p>2、jna-4.2.1.jar  </p>
+<pre><code>&lt;dependency&gt;
+        &lt;groupId&gt;net.sourceforge.tess4j&lt;/groupId&gt;
+        &lt;artifactId&gt;tess4j&lt;/artifactId&gt;
+        &lt;version&gt;2.0.1&lt;/version&gt;
+        &lt;exclusions&gt;
+            &lt;exclusion&gt;
+                &lt;groupId&gt;com.sun.jna&lt;/groupId&gt;
+                &lt;artifactId&gt;jna&lt;/artifactId&gt;
+            &lt;/exclusion&gt;
+        &lt;/exclusions&gt;
+&lt;/dependency&gt;  
+</code></pre><p>2、jna-4.2.1.jar  </p>
 <pre><code>&lt;dependency&gt;
         &lt;groupId&gt;net.java.dev.jna&lt;/groupId&gt;
         &lt;artifactId&gt;jna&lt;/artifactId&gt;
@@ -544,7 +551,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LintCode</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -552,11 +559,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">剑指offer</a>
+                <a href="javascript:void(0)" class="js-tag color4">LintCode</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+                <a href="javascript:void(0)" class="js-tag color3">剑指offer</a>
               </li>
              
               <li class="article-tag-list-item">
