@@ -9,14 +9,14 @@
   <title>桶排序 | TR&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="From : blog.mwxu16.cn简介从某种程度上讲，桶排序可以说是最快最简单的一种排序算法了，但是缺点也是很明显的，那就是适用范围太小。当待排序的数范围很大时，非常的消耗内存（比如说排序的数的范围是1到1亿，就必须创建1亿个桶（长度为1亿的一维数组，当然这只是假设，并不能创建这么大的数组））。">
-<meta name="keywords" content="algorithm,sort">
+<meta name="keywords" content="algorithm,sort,bucket">
 <meta property="og:type" content="article">
 <meta property="og:title" content="桶排序">
 <meta property="og:url" content="http://www.mwxu16.cn/2017/09/23/桶排序/index.html">
 <meta property="og:site_name" content="TR&#39;s Blog">
 <meta property="og:description" content="From : blog.mwxu16.cn简介从某种程度上讲，桶排序可以说是最快最简单的一种排序算法了，但是缺点也是很明显的，那就是适用范围太小。当待排序的数范围很大时，非常的消耗内存（比如说排序的数的范围是1到1亿，就必须创建1亿个桶（长度为1亿的一维数组，当然这只是假设，并不能创建这么大的数组））。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-09-26T05:05:59.156Z">
+<meta property="og:updated_time" content="2017-11-20T04:17:05.872Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="桶排序">
 <meta name="twitter:description" content="From : blog.mwxu16.cn简介从某种程度上讲，桶排序可以说是最快最简单的一种排序算法了，但是缺点也是很明显的，那就是适用范围太小。当待排序的数范围很大时，非常的消耗内存（比如说排序的数的范围是1到1亿，就必须创建1亿个桶（长度为1亿的一维数组，当然这只是假设，并不能创建这么大的数组））。">
@@ -217,8 +217,9 @@ public class Tong_sort {
            //从小到大输出
            //遍历桶，若桶的值x，则输出该桶的编号x次
            for(int i=0;i&lt;N;i++){
-                for(int k=0;k&lt;book[i];k++){
-                     System.out.print(i+&quot; &quot;);
+                while(book[i] &gt; 0){
+                    System.out.print(i + &quot;,&quot;);
+                    book[i]--;
                 }
            }
      }
@@ -272,6 +273,10 @@ public class Tong_sort {
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">sort</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">bucket</a>
         		</li>
       		
 		</ul>
@@ -531,11 +536,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
+                <a href="javascript:void(0)" class="js-tag color5">easy</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">easy</a>
+                <a href="javascript:void(0)" class="js-tag color4">LeetCode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -595,15 +600,19 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">sort</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">bucket</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Encryption</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">MD5</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">sort</a>
               </li>
              
               <li class="article-tag-list-item">
